@@ -15,14 +15,70 @@ class Database {
         return $dbh;
     }
 }
-function insererUtilisateur($dbh,$login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille){
-    $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
-    $sth->execute(array("$login","$mdp","$nom","$prenom","$promotion","$naissance","$email","$feuille"));
- }
+class Utilisateur {
+    public $login;
+    public $mdp;
+    public $nom;
+    public $prenom;
+    public $promotion;
+    public $naissance;
+    public $email;
+    public $feuille;
+ 
+    public function __toString() {
+        $ddn= explode('-', $this->naissance);
+        $msg="[$this->login] $this->prenom <em>$this->nom</em>, né le $ddn[2]/$ddn[1]/$ddn[0],";
+        if ($this->promotion!=NULL) {
+            $msg=$msg." X$this->promotion";
+        }
+        $msg=$msg." <em>$this->email</em>";
+        return $msg;
+    }
+    public static function getUtilisateur($dbh,$login){
+        $query = "SELECT * FROM `utilisateurs` WHERE login = '$login';";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute();
+        $user = $sth->fetch();
+        $sth->closeCursor();
+        return  ($user? $user: null);
+    }
+    public static function insererUtilisateur($dbh,$login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille){
+        if (getUtilisateur($dbh,$login)==null){
+            $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
+            $sth->execute(array("$login","$mdp","$nom","$prenom","$promotion","$naissance","$email","$feuille"));
+        }
+        else {return "error";}
+    }
+    public static function testerMdp($dbh,$login,$mdp){
+        $user=getUtilisateur($dbh,$login);
+        if ($user==null) {return "error";}
+        else {return ($user->mdp==$mdp);}
+    }
+    public static function getAmis($dbh,$login){
+        $query = "SELECT * FROM `utilisateurs` JOIN `amis` ON `amis`.`login2`=`utilisateurs`.`login` WHERE `amis`.`login1`='$login';";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute();
+        $users = $sth->fetchAll();
+        $sth->closeCursor();
+        return $users;
+    }
+    
+ 
+}
+
  
  
 // opérations sur la base
 $dbh = Database::connect();
-insererUtilisateur($dbh,'manon643', 'bla','Romain', 'Manon', '2015', '26/06/1996', 'manonr96@gmail.com', 'bla.css');
+
+require 'utilities/utils.php';
+generateHTMLHeader('test base de données','css/bootstrap.css', 'css/perso.css');
+echo "<p>";
+$user= Utilisateur::getUtilisateur($dbh,"manon643");
+echo $user;
+echo "</p>";
+generateHTMLFooter();
 $dbh = null; // Déconnexion de MySQL
 ?>

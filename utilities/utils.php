@@ -17,6 +17,10 @@ $page_list = array(
         "name" => "contacts",
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
+    array(
+        "name" => "amis",
+        "title" => "Amis",
+        "menutitle" => "Recherche d'amis"),
 );
 
 function checkPage($askedPage) {
