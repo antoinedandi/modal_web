@@ -9,7 +9,7 @@
             vous gagnez un billet de loterie, dont la cagnotte grossit à 
             chaque fois qu'un utilisateur regarde une pub. Génial non?</p>
         
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Jouer!</a></p>
+        <p><a class="btn btn-primary btn-lg" href="dbb.php" role="button">Jouer!</a></p>
     </div>
     
 </div>
