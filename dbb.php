@@ -31,7 +31,7 @@ class Utilisateur {
         if ($this->promotion!=NULL) {
             $msg=$msg." X$this->promotion";
         }
-        $msg=$msg." <em>$this->email</em>";
+        $msg=$msg." <em>$this->email</em> <a href='index.php?page=amis&login=$this->login'>Voir ses amis</a>";
         return $msg;
     }
     public static function getUtilisateur($dbh,$login){
@@ -67,18 +67,4 @@ class Utilisateur {
     
  
 }
-
- 
- 
-// opérations sur la base
-$dbh = Database::connect();
-
-require 'utilities/utils.php';
-generateHTMLHeader('test base de données','css/bootstrap.css', 'css/perso.css');
-echo "<p>";
-$user= Utilisateur::getUtilisateur($dbh,"manon643");
-echo $user;
-echo "</p>";
-generateHTMLFooter();
-$dbh = null; // Déconnexion de MySQL
 ?>

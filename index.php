@@ -1,6 +1,7 @@
 <?php
 require "utilities/utils.php";
-
+require 'dbb.php';
+$dbh = Database::connect();
 if (isset($_GET['page'])) {
     $askedPage = $_GET['page'];
 } else {
@@ -8,7 +9,7 @@ if (isset($_GET['page'])) {
 }
 
 $authorized = checkPage($askedPage);
-if ($authorized == TRUE) {
+if ($authorized) {
     $pageTitle = getPageTitle($askedPage);
 } else {
     $pageTitle = "Erreur";
@@ -27,7 +28,7 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
     <div id="content">
         <?php
-        if ($authorized == TRUE) {
+        if ($authorized) {
             require "content/content_" . $askedPage . ".php";
         } else {
             echo "<p>Désolé, la page demandée n'existe pas ou n'est accessible qu'aux gentlemen.</p>";
@@ -51,4 +52,6 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
 <?php
 generateHTMLFooter();
+$dbh = null;
 ?>
+

@@ -50,3 +50,8 @@ h1,h2,h3,p {
     background-color: #2b542c ; 
     border-radius: 10px;
 }
+.lisible{
+    text-align: center;
+    opacity: 0.5;
+    background-color: white;
+}
