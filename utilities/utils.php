@@ -59,15 +59,15 @@ FIN;
 
 function generateHTMLHeader($titre, $link_1_css, $link_2_css) {
     echo <<<CHAINE_DE_FIN
-                <!DOCTYPE html>
-                <html>
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>$titre</title>
-                        <link href="$link_1_css" rel="stylesheet">
-                        <link href="$link_2_css" rel="stylesheet">
-                    </head>
-                    <body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>$titre</title>
+        <link href="$link_1_css" rel="stylesheet">
+        <link href="$link_2_css" rel="stylesheet">
+    </head>
+    <body>
 CHAINE_DE_FIN;
 }
 
