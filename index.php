@@ -45,35 +45,33 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
     ?>
 </nav>
 
-<div class="container-fluid">
-
+<div class="container-fluid  " >
     <div id="content">
         <?php
+        echo "<div class='row'>";
         if (isset($_GET['todo']) && $_GET['todo'] == 'register') {
-            echo "bla";
             require 'login/register.php';
         } else {
-            echo "<div class='row'>";
+            
             if ($authorized) {
                 echo "<div class='col-md-9'>";
                 require "content/content_" . $askedPage . ".php";
                 echo "</div>";
                 // affichage de formulaires
                 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
-                    printLogOutForm($askedPage,$_SESSION['user']);
+                    printLogOutForm($askedPage, $_SESSION['user']);
                 } else {
                     printLoginForm($askedPage, $errors['login'], $errors['mdp']);
                 }
             } else {
                 echo "<p>Désolé, la page demandée n'existe pas ou n'est accessible qu'aux gentlemen.</p>";
-            }
-            echo "</div>";
+            }            
         }
+        echo "</div>";
         ?>
-    </div>
-
-    <div id="footer">
-        <p>site réalisé en modal par Manon et Antoine</p>
+        <div id="footer">
+            <p>site réalisé en modal par Manon et Antoine</p>
+        </div>
     </div>
 </div>
 

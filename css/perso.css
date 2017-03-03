@@ -23,8 +23,6 @@ body {
 background-color: #ffffc8;
 padding-right: 15px;
 padding-left: 15px;
-margin-top: 20px;
-margin-bottom: 20px;
 }
 
 h1,h2,h3,p {
@@ -47,8 +45,12 @@ h1,h2,h3,p {
     background-color: white;
 }
 .pan{
-    margin: 0px 40px 0px 40px;
     background-color: lightsteelblue;
     border-radius: 10px;
-    
+}
+.login{
+    margin:0px 40px 0px 40px;
+}
+.inscription{
+    padding:50px;
 }
