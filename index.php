@@ -1,7 +1,21 @@
 <?php
+session_name("SessionUtilisateur");
+// ne pas mettre d'espace dans le nom de session !
+session_start();
+if (!isset($_SESSION['initiated'])) {
+    session_regenerate_id();
+    $_SESSION['initiated'] = true;
+}
+
+// Décommenter la ligne suivante pour afficher le tableau $_SESSION pour le debuggage
+//print_r($_SESSION);
 require "utilities/utils.php";
 require 'dbb.php';
+require 'login/printForms.php';
+require 'login/LogInOut.php';
+
 $dbh = Database::connect();
+
 if (isset($_GET['page'])) {
     $askedPage = $_GET['page'];
 } else {
@@ -14,7 +28,14 @@ if ($authorized) {
 } else {
     $pageTitle = "Erreur";
 }
-
+$errors = array('login' => false, 'mdp' => false);
+if (isset($_GET['todo'])) {
+    if ($_GET['todo'] == 'login') {
+        $errors = LogIn($dbh);
+    } elseif ($_GET['todo'] == 'logout') {
+        LogOut();
+    }
+}
 generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 ?>
 
@@ -28,10 +49,25 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
     <div id="content">
         <?php
-        if ($authorized) {
-            require "content/content_" . $askedPage . ".php";
+        if (isset($_GET['todo']) && $_GET['todo'] == 'register') {
+            echo "bla";
+            require 'login/register.php';
         } else {
-            echo "<p>Désolé, la page demandée n'existe pas ou n'est accessible qu'aux gentlemen.</p>";
+            echo "<div class='row'>";
+            if ($authorized) {
+                echo "<div class='col-md-9'>";
+                require "content/content_" . $askedPage . ".php";
+                echo "</div>";
+                // affichage de formulaires
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+                    printLogOutForm($askedPage,$_SESSION['user']);
+                } else {
+                    printLoginForm($askedPage, $errors['login'], $errors['mdp']);
+                }
+            } else {
+                echo "<p>Désolé, la page demandée n'existe pas ou n'est accessible qu'aux gentlemen.</p>";
+            }
+            echo "</div>";
         }
         ?>
     </div>
@@ -53,5 +89,7 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <?php
 generateHTMLFooter();
 $dbh = null;
+//session_unset();
+//session_destroy();
 ?>
 

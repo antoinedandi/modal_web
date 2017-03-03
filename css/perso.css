@@ -1,12 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 13 avr. 2014, 09:14:23
-    Author     : olivierserre
-*/
 
 [class*="col-"].gris {
     background-color: grey;
@@ -54,4 +45,10 @@ h1,h2,h3,p {
     text-align: center;
     opacity: 0.5;
     background-color: white;
+}
+.pan{
+    margin: 0px 40px 0px 40px;
+    background-color: lightsteelblue;
+    border-radius: 10px;
+    
 }

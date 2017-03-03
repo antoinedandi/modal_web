@@ -35,24 +35,23 @@ class Utilisateur {
         return $msg;
     }
     public static function getUtilisateur($dbh,$login){
-        $query = "SELECT * FROM `utilisateurs` WHERE login = '$login';";
+        $query = "SELECT * FROM `utilisateurs` WHERE login = ?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $sth->execute();
+        $sth->execute(array("$login"));
         $user = $sth->fetch();
         $sth->closeCursor();
         return  ($user? $user: null);
     }
     public static function insererUtilisateur($dbh,$login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille){
-        if (getUtilisateur($dbh,$login)==null){
+        if (Utilisateur::getUtilisateur($dbh,$login)==null){
             $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
             $sth->execute(array("$login","$mdp","$nom","$prenom","$promotion","$naissance","$email","$feuille"));
         }
         else {return "error";}
     }
-    public static function testerMdp($dbh,$login,$mdp){
-        $user=getUtilisateur($dbh,$login);
-        if ($user==null) {return "error";}
+    public static function testerMdp($user,$mdp){
+        if ($user==null) {return false;}
         else {return ($user->mdp==$mdp);}
     }
     public static function getAmis($dbh,$login){
@@ -67,4 +66,5 @@ class Utilisateur {
     
  
 }
+
 ?>

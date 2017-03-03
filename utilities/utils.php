@@ -6,21 +6,13 @@ $page_list = array(
         "title" => "Accueil de lotopub",
         "menutitle" => "Accueil"),
     array(
-        "name" => "inscription",
-        "title" => "inscription",
-        "menutitle" => "s'inscrire"),
-    array(
         "name" => "news",
-        "title" => "on vous tiens au courant",
+        "title" => "on vous tient au courant",
         "menutitle" => "dernières nouvelles"),
     array(
         "name" => "contacts",
         "title" => "Qui sommes-nous ?",
-        "menutitle" => "Nous contacter"),
-    array(
-        "name" => "amis",
-        "title" => "Amis",
-        "menutitle" => "Recherche d'amis"),
+        "menutitle" => "Nous contacter")
 );
 
 function checkPage($askedPage) {
@@ -44,22 +36,25 @@ function getPageTitle($askedPage) {
 }
 
 function generateMenu($page_list) {
-    echo <<<CHAINE_DE_FIN
+    echo <<<FIN
     <div class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-CHAINE_DE_FIN;
+FIN;
 
     foreach ($page_list as $page) {
         echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
     }
-    echo <<<CHAINE_DE_FIN
+    if (isset($_SESSION['loggedIn'])){
+        echo "<li><a href=\"index.php?page=compte\">Mon compte</a></li>";
+    }
+    echo <<<FIN
             </ul>
         </div>
     </div>
     </div>
-CHAINE_DE_FIN;
+FIN;
 }
 
 function generateHTMLHeader($titre, $link_1_css, $link_2_css) {
