@@ -1,12 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 13 avr. 2014, 09:14:23
-    Author     : olivierserre
-*/
 
 [class*="col-"].gris {
     background-color: grey;
@@ -14,6 +5,8 @@ and open the template in the editor.
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+
 
 body { 
   margin:0;
@@ -23,30 +16,28 @@ body {
   background-size: cover; 
 }
 
+
 .row{
     border-radius: 10px;
+    background-color: rgb(238, 238, 238);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ 
 }
 
-
-.equipe {
-background-color: #ffffc8;
-padding-right: 15px;
-padding-left: 15px;
-margin-top: 20px;
-margin-bottom: 20px;
-}
 
 h1,h2,h3,p {
     text-align: center;
 }
 
-.info_tirage{
-    background-color: #67b168;
-    padding-top:15px;
-    padding-bottom:15px;
-}
+
 
 .boxy{
-    background-color: #2b542c ; 
+    background-color: grey ; 
     border-radius: 10px;
+    color: white;
 }

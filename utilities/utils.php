@@ -17,7 +17,33 @@ $page_list = array(
         "name" => "contacts",
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
+    array(
+        "name" => "changePassword",
+        "title" => "changer de mot de passe",
+        "menutitle" => "changer de mot de passe"),
+    array(
+        "name" => "deleteUser",
+        "title" => "supprimer votre compte",
+        "menutitle" => "supprimer compte"),
 );
+
+$page_list_menu = array(
+    array(
+        "name" => "welcome",
+        "title" => "Accueil de lotopub",
+        "menutitle" => "Accueil"),
+    array(
+        "name" => "news",
+        "title" => "on vous tiens au courant",
+        "menutitle" => "dernières nouvelles"),
+    array(
+        "name" => "contacts",
+        "title" => "Qui sommes-nous ?",
+        "menutitle" => "Nous contacter"),
+);
+
+
+
 
 function checkPage($askedPage) {
     global $page_list;
@@ -39,7 +65,8 @@ function getPageTitle($askedPage) {
     }
 }
 
-function generateMenu($page_list) {
+
+function generateMenu_not_loggedIn($page_list_menu,$askedPage) {
     echo <<<CHAINE_DE_FIN
     <div class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -47,11 +74,60 @@ function generateMenu($page_list) {
             <ul class="nav navbar-nav">
 CHAINE_DE_FIN;
 
-    foreach ($page_list as $page) {
+    foreach ($page_list_menu as $page) {
         echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
     }
     echo <<<CHAINE_DE_FIN
             </ul>
+            <div class="pull-right">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown" id="menuLogin">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                        <div class="dropdown-menu" style="padding:17px;">
+CHAINE_DE_FIN;
+                        printLoginForm($askedPage);
+                        echo <<<CHAINE_DE_FIN
+                        </div>
+                    </li>
+                    <li><a href=index.php?page=inscription> s'inscrire </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+CHAINE_DE_FIN;
+}
+
+
+function generateMenu_loggedIn($page_list_menu) {
+    $login=$_SESSION['login'];
+    echo <<<CHAINE_DE_FIN
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+CHAINE_DE_FIN;
+
+    foreach ($page_list_menu as $page) {
+        echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
+    }
+    echo <<<CHAINE_DE_FIN
+            </ul>
+            <div class="pull-right">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href=index.php?page=changePassword><i class="icon-cog"></i> change password</a></li>
+                            <li><a href=index.php?page=deleteUser><i class="icon-envelope"></i> delete account</a></li>
+                            <li class="divider"></li>
+                            <li><form action='index.php?todo=logout' method='post'>
+                                    <p><input type="submit" value="Logout" /></p>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     </div>
