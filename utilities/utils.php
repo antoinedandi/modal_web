@@ -143,6 +143,8 @@ function generateHTMLHeader($titre, $link_1_css, $link_2_css) {
                         <title>$titre</title>
                         <link href="$link_1_css" rel="stylesheet">
                         <link href="$link_2_css" rel="stylesheet">
+                        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+                        <script type="text/javascript" src="js/code.js"></script>
                     </head>
                     <body>
 CHAINE_DE_FIN;
