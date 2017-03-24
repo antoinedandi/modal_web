@@ -1,5 +1,8 @@
-<jumbotron><video width="320" height="240" controls autoplay>
-        <source src="Aladdin.mkv" type="video/mkv">
-        Your browser does not support the video tag.
-    </video></jumbotron>
-
+<div class="row col-md-8 col-md-offset-2">         
+    <div class="col-md-3 col-md-offset-1 boxy ">
+        <p>temps restant avant le prochain tirage : 3h 11min 02s</p>
+    </div> 
+    <div class="col-md-3 col-md-offset-1 boxy ">
+        <p>Cagnotte : 137,2€</p>
+    </div>                
+</div>

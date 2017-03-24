@@ -87,7 +87,13 @@ function generateMenu($page_list_menu, $askedPage) {
 CHAINE_DE_FIN;
 
     foreach ($page_list_menu as $page) {
-        echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
+        if ($page['name']!='compte'){
+            echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
+        }
+        else if (isset($_SESSION['loggedIn'])&&$page['name']=='compte'){
+            echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
+            
+        }
     }
     echo <<<FIN
      </ul>

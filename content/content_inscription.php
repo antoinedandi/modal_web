@@ -21,8 +21,9 @@ if(isset($_POST["name"]) && $_POST["name"] != "" &&
    isset($_POST["up2"]) && $_POST["up2"] != "") {  
         
   // code de traitement, à écrire maintenant
-  
-  if(($_POST["up2"] == $_POST["up"]) && (Utilisateur::insererUtilisateur($dbh, $_POST["login"], $_POST["up"], $_POST["name"], $_POST["first_name"], '2005', '1980-03-27', $_POST["email"], 'modal.css')) ){
+  // $dbh, $login, $mdp, $nom, $prenom, $naissance, $email
+    
+  if(($_POST["up2"] == $_POST["up"]) && (Utilisateur::insererUtilisateur($dbh, $_POST["login"], $_POST["up"], $_POST["name"], $_POST["first_name"], '1980-03-27', $_POST["email"])) ){
       $form_values_valid = true;
   }
 }

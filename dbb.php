@@ -24,10 +24,11 @@ class Utilisateur {
     public $mdp;
     public $nom;
     public $prenom;
-    public $promotion;
     public $naissance;
     public $email;
-    public $feuille;
+    public $solde;
+    public $tickets;
+    public $admin;
  
     public function __toString() {
         return '['.$this->login.'] '.$this->prenom.' '.$this->nom;
@@ -44,10 +45,10 @@ class Utilisateur {
         return ($sth)? $user: null;
     }
     
-    public static function insererUtilisateur($dbh, $login, $mdp, $nom, $prenom, $promotion, $naissance, $email, $feuille) {
+    public static function insererUtilisateur($dbh, $login, $mdp, $nom, $prenom, $naissance, $email) {
         if (Utilisateur::getUtilisateur($dbh, $login) == null){
-            $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
-            $sth->execute(array($login, $mdp, $nom, $prenom, $promotion, $naissance, $email, $feuille));
+            $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `naissance`, `email`) VALUES(?,SHA1(?),?,?,?,?)");
+            $sth->execute(array($login, $mdp, $nom, $prenom, $naissance, $email));
             return TRUE;
         }
         else{

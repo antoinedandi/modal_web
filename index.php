@@ -57,13 +57,7 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
 <nav id="menu">
     <?php
-    if( isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] && isset($_SESSION['login']) ) {
-        generateMenu_loggedIn($page_list_menu);
-    }
-    else{
-        generateMenu_not_loggedIn($page_list_menu,$askedPage);
-    }
-    
+        generateMenu($page_list_menu,$askedPage);
     ?>
 </nav>
 
