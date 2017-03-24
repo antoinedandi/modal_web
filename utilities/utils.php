@@ -78,7 +78,7 @@ function getPageTitle($askedPage) {
     }
 }
 
-function generateMenu_not_loggedIn($page_list_menu, $askedPage) {
+function generateMenu($page_list_menu, $askedPage) {
     echo <<<CHAINE_DE_FIN
     <div class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -95,6 +95,7 @@ CHAINE_DE_FIN;
                 <ul class="nav navbar-nav pull-right">
 FIN;
     if (isset($_SESSION['loggedIn'])) {
+        $login = $_SESSION['login'];
         echo <<<CHAINE_DE_FIN
            
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>
@@ -131,40 +132,7 @@ CHAINE_DE_FIN;
 FIN;
 }
 
-function generateMenu_loggedIn($page_list_menu) {
-    $login = $_SESSION['login'];
-    echo <<<CHAINE_DE_FIN
-    <div class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-CHAINE_DE_FIN;
 
-    foreach ($page_list_menu as $page) {
-        echo "<li><a class='test' href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
-    }
-    echo <<<CHAINE_DE_FIN
-            </ul>
-            <div class="pull-right">
-                <ul class="nav navbar-nav pull-right">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href=index.php?page=changePassword><i class="icon-cog"></i> change password</a></li>
-                            <li><a href=index.php?page=deleteUser><i class="icon-envelope"></i> delete account</a></li>
-                            <li class="divider"></li>
-                            <li><form action='index.php?todo=logout' method='post'>
-                                    <p><input type="submit" value="Logout" /></p>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-CHAINE_DE_FIN;
-}
 
 function generateHTMLHeader($titre, $link_1_css, $link_2_css) {
     echo <<<CHAINE_DE_FIN
