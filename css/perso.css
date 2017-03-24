@@ -52,3 +52,8 @@ h1,h2,h3,p {
     border-radius: 10px;
     color: white;
 }
+
+video {
+    width: 100%;
+    height: auto;
+}
