@@ -24,10 +24,10 @@ body {
 
 .jumbotron {
     background-color:rgba(0,0,0,0);
-    color:white;
+    color:black;
 }
 
-.row{
+.cadre{
     border-radius: 10px;
     
     background-color: rgb(238, 238, 238);
@@ -51,4 +51,8 @@ h1,h2,h3,p {
     background-color: grey ; 
     border-radius: 10px;
     color: white;
+}
+video {
+    width: 100%;
+    height: auto;
 }
