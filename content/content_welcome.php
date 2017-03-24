@@ -2,7 +2,7 @@
 
 
     <div class="jumbotron">
-        <h1>Bienvenue sur lotopub</h1>
+        <h1>Bienvenue sur Lotopub</h1>
         <p>Ici, vous pouvez jouer gratuitement pour gagner de l'argent.
             Le principe est très simple, vous regardez une pub et 
             repondez à une question. Si vous trouvez la bonne réponse,

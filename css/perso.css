@@ -6,19 +6,30 @@
     padding-bottom: 15px;
 }
 
-
-
 body { 
   margin:0;
   padding:0;
-  background: url(../img/dollar.jpg) no-repeat center fixed; 
+  background: url(../img/Polytechnique.jpg) no-repeat center fixed; 
   -webkit-background-size: cover; 
   background-size: cover; 
 }
+.navbar {
+  background: none;
+  border:0px;
+}
 
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.jumbotron {
+    background-color:rgba(0,0,0,0);
+    color:white;
+}
 
 .row{
     border-radius: 10px;
+    
     background-color: rgb(238, 238, 238);
     padding-right: 15px;
     padding-left: 15px;
