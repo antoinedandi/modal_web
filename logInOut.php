@@ -20,5 +20,5 @@ function logIn($dbh){
 
 function logOut(){
     unset($_SESSION["loggedIn"]);
-    unset($_SESSION["login"]);
+    unset($_SESSION["user"]);
 }

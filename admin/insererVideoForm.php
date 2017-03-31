@@ -1,5 +1,5 @@
 <?php
-require 'video.php';
+
 if (isset($_GET["todo"]) && ($_GET["todo"] == "submitVideo")) {
     echo "<p class='cadre row'>";
     $temp=empty($_FILES['video']['tmp_name']);

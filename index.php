@@ -14,10 +14,6 @@ if (!isset($_SESSION['initiated'])) {
 // Décommenter la ligne suivante pour afficher le tableau $_SESSION pour le debuggage
 //print_r($_SESSION);
 
-
-
-
-
 $dbh = Database::connect();
 
 // traitement des contenus de formulaires

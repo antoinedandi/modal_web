@@ -90,7 +90,7 @@ CHAINE_DE_FIN;
         if ($page['name']!='compte'){
             echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
         }
-        else if (isset($_SESSION['loggedIn'])&&$page['name']=='compte'){
+        else if (isset($_SESSION['loggedIn'])&& $_SESSION['loggedIn'] &&$page['name']=='compte'){
             echo "<li><a href=\"index.php?page=" . $page['name'] . "\">" . $page['title'] . "</a></li>";
             
         }
@@ -100,7 +100,7 @@ CHAINE_DE_FIN;
             <div class="pull-right">
                 <ul class="nav navbar-nav pull-right">
 FIN;
-    if (isset($_SESSION['loggedIn'])) {
+    if (isset($_SESSION['loggedIn'])&& $_SESSION['loggedIn']) {
         $login = htmlspecialchars($_SESSION['user']->login);
         echo <<<CHAINE_DE_FIN
            
