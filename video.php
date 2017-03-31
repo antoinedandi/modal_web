@@ -50,7 +50,7 @@ class Video {
     }
     
     public static function testerReponse($dbh,$id,$reponse) {
-        $video=Utilisateur::getVideoWithID($dbh, $id);
+        $video=Video::getVideoWithID($dbh, $id);
         return $reponse==$video->right_answer;
     }
     
