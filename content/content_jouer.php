@@ -7,8 +7,9 @@
 CHAINE_DE_FIN;
     }
     
-    function afficher_questions($question,$rep1,$rep2,$rep3,$rep4){
+    function afficher_questions($question,$rep1,$rep2,$rep3,$rep4,$bonneréponse){
         echo <<<CHAINE_DE_FIN
+        <form action="?page=jouer" method="post">
         <fieldset class="form-group row cadre">
           <legend class="col-form-legend col-sm-2">$question</legend>
           <div class="col-sm-8 col-md-offset-2">
@@ -45,9 +46,6 @@ CHAINE_DE_FIN;
 <div class="row col-md-10 col-md-offset-1"> 
     <?php
         afficher_video("Lucky_Charmz.webmsd.webm");
-        afficher_questions("??","1.","vgvgv","vygyftdrsrs","aucune idée connard");
-        afficher_questions("??","1.","vgvgv","vygyftdrsrs","aucune idée connard");
-        afficher_questions("??","1.","vgvgv","vygyftdrsrs","aucune idée connard");
-        afficher_questions("??","1.","vgvgv","vygyftdrsrs","aucune idée connard");
+        afficher_questions("??","1.","vgvgv","vygyftdrsrs","aucune idée connard"); 
     ?>  
 </div>
