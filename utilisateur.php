@@ -66,7 +66,7 @@ class Utilisateur {
         $sth->execute(array("$login"));
     }
     public static function incrementTickets($dbh,$user){
-        $query="UPDATE `utilisateurs` SET `tickets`='1'  WHERE login=?";
+        $query="UPDATE `utilisateurs` SET `tickets`=`tickets`+1  WHERE login=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $sth->execute(array("$user->login"));
