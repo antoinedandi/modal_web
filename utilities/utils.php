@@ -101,7 +101,7 @@ CHAINE_DE_FIN;
                 <ul class="nav navbar-nav pull-right">
 FIN;
     if (isset($_SESSION['loggedIn'])) {
-        $login = $_SESSION['login'];
+        $login = htmlspecialchars($_SESSION['user']->login);
         echo <<<CHAINE_DE_FIN
            
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>

@@ -1,4 +1,8 @@
 <?php
+require "utilities/utils.php";
+require "dbb.php";
+require "logInOut.php";
+require "printForms.php";
 session_name("NomSessionDifficileaTrouver");
 session_start();
 if (!isset($_SESSION['initiated'])) {
@@ -9,10 +13,7 @@ if (!isset($_SESSION['initiated'])) {
 //print_r($_SESSION);
 
 
-require "utilities/utils.php";
-require "dbb.php";
-require "logInOut.php";
-require "printForms.php";
+
 
 
 $dbh = Database::connect();

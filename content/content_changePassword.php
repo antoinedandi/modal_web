@@ -1,7 +1,7 @@
 <?php
 
 $change_password_valid=false;
-$login=$_SESSION['login'];
+$login= htmlspecialchars($_SESSION['user']->login);
 
     
 // code de traitement du formulaire : 
@@ -52,5 +52,5 @@ if (!$change_password_valid) {
 </div>   
 CHAINE_DE_FIN;
 }else{
-    echo 'vous avez changé de mot de passe ';
+    echo 'Vous avez changé de mot de passe ';
 }

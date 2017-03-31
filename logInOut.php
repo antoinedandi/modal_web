@@ -4,9 +4,10 @@ function logIn($dbh){
     $login=$_POST["login"];
     //echo $login;
     $mdp=$_POST["password"];
-    if(Utilisateur::getUtilisateur($dbh, $login) != NULL  && Utilisateur::testerMdp($dbh,$login,$mdp)){
+    $user=Utilisateur::getUtilisateur($dbh, $login);
+    if( $user != NULL  && Utilisateur::testerMdp($dbh,$login,$mdp)){
         $_SESSION["loggedIn"] = TRUE;
-        $_SESSION["login"] = $login;
+        $_SESSION["user"] = $user;
         //echo $_SESSION["loggedIn"];
         //echo 'connexion reussie';
     }
