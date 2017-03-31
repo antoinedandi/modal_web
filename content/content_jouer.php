@@ -9,7 +9,7 @@ CHAINE_DE_FIN;
     
     function afficher_questions($question,$rep1,$rep2,$rep3,$rep4){
         echo <<<CHAINE_DE_FIN
-        <fieldset class="form-group row">
+        <fieldset class="form-group row cadre">
           <legend class="col-form-legend col-sm-2">$question</legend>
           <div class="col-sm-8 col-md-offset-2">
             <div class="form-check">
