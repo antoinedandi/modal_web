@@ -80,35 +80,7 @@ class Utilisateur {
     
 }
 
-// opérations sur la base
 
-/*
-$test= Utilisateur::getUtilisateur($dbh, 'barry.allen');
-
-echo $test;
-
-Utilisateur::insererUtilisateur($dbh,'elie','Mystere','Marcel','Dupont','2005','1980-03-27','Marcel.Dupont@polytechnique.edu','modal.css');
-echo Utilisateur::testerMdp($dbh,'elie','Mystere');
-
-
-$query = "SELECT * FROM `utilisateurs`";
-$sth = $dbh->prepare($query);
-$request_succeeded = $sth->execute();
-
-while ($courant =  $sth->fetch(PDO::FETCH_ASSOC)){
-    echo $courant['nom'];
-}
-
-
-function insererUtilisateur($dbh,$login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille){
-    $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `promotion`, `naissance`, `email`, `feuille`) VALUES(?,SHA1(?),?,?,?,?,?,?)");
-    $sth->execute(array($login,$mdp,$nom,$prenom,$promotion,$naissance,$email,$feuille));   
-}
-
-
-
-
-*/
 
 
 //$dbh = null; // Déconnexion de MySQL
