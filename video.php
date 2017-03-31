@@ -39,13 +39,12 @@ class Video {
     }
     
     public static function insererVideo($dbh, $nom, $question, $right_answer,$wrong_answer1,$wrong_answer2,$wrong_answer3) {
-        if (Utilisateur::getVideo($dbh, $nom) == null){
+        if (Video::getVideo($dbh, $nom) == null){
             $sth = $dbh->prepare("INSERT INTO `video` (`nom`, `question`, `right_answer`,`wrong_answer1`,`wrong_answer2`,`wrong_answer3`) VALUES(?,?,?,?,?,?)");
             $sth->execute(array($nom, $question, $right_answer,$wrong_answer1,$wrong_answer2,$wrong_answer3));
             return TRUE;
         }
         else{
-            echo 'Impossible vidéo déjà ajoutée!!!';
             return FALSE;
         }   
     }
