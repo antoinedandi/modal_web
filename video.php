@@ -39,7 +39,7 @@ class Video {
     }
     
     public static function insererVideo($dbh, $nom, $question, $right_answer,$wrong_answer1,$wrong_answer2,$wrong_answer3) {
-        if (Utilisateur::getUtilisateur($dbh, $nom) == null){
+        if (Utilisateur::getVideo($dbh, $nom) == null){
             $sth = $dbh->prepare("INSERT INTO `video` (`nom`, `question`, `right_answer`,`wrong_answer1`,`wrong_answer2`,`wrong_answer3`) VALUES(?,?,?,?,?,?)");
             $sth->execute(array($nom, $question, $right_answer,$wrong_answer1,$wrong_answer2,$wrong_answer3));
             return TRUE;
@@ -52,15 +52,15 @@ class Video {
     
     public static function testerReponse($dbh,$id,$reponse) {
         $video=Utilisateur::getVideoWithID($dbh, $id);
-        return $reponse==$test->right_answer;
+        return $reponse==$video->right_answer;
     }
     
 
-    public static function deleteUser($dbh,$login){
-        $query="DELETE FROM `utilisateurs` WHERE `login`=?";
+    public static function deleteUser($dbh,$nom){
+        $query="DELETE FROM `video` WHERE `nom`=?";
         $sth = $dbh->prepare($query);
-        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $sth->execute(array("$login"));
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Video');
+        $sth->execute(array("$nom"));
     }
     
 }
