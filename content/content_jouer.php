@@ -8,6 +8,10 @@ CHAINE_DE_FIN;
     }
     
     function afficher_questions($question,$rep1,$rep2,$rep3,$rep4){
+        $positions= array(1,2,3,4);
+        //print_r($positions);
+        shuffle($positions);
+        //print_r($positions);
         echo <<<CHAINE_DE_FIN
         <div class="container-fluid row col-md-8 col-md-offset-2">
         <form class="form-group row cadre" action="?page=jouer" method="post">
@@ -57,10 +61,15 @@ if(isset($_POST["choix"])) {
   
   if(($video != NULL) && (Video::testerReponse($dbh,$id,$_POST["choix"])) ){     
       $form_values_valid = true;
-      echo $form_values_valid;   
+      echo $form_values_valid; 
+      Utilisateur::incrementTickets($dbh, $_SESSION["user"]);
   }
  else {
-    echo'mauvaise réponse';
+        echo <<<FIN
+        <div class="row col-md-8 col-md-offset-2 cadre">
+                <p>Mauvaise réponse enculé</p>
+        </div>
+FIN;
   }
 }
   
@@ -69,7 +78,11 @@ if(isset($_POST["choix"])) {
       afficher_questions($video->question,$video->right_answer,$video->wrong_answer1,$video->wrong_answer1,$video->wrong_answer1);
   }
   else{
-      echo 'bravo vous avez gagné un ticket';
+        echo <<<FIN
+        <div class="row col-md-8 col-md-offset-2 cadre">
+                <p>Bravo! Vous avez gagné un ticket!!</p>
+        </div>
+FIN;
   }
 
      
