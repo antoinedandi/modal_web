@@ -70,6 +70,12 @@ class Utilisateur {
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $sth->execute(array("$login"));
     }
+    public static function rendreAdmin($dbh,$login){
+        $query="UPDATE `utilisateurs` SET `admin`='1'  WHERE login=?";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute(array("$login"));
+    }
 
     public static function deleteUser($dbh,$login){
         $query="DELETE FROM `utilisateurs` WHERE `login`=?";
