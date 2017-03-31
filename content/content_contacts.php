@@ -1,5 +1,5 @@
 
-<div class="row equipe">
+<div class="row col-md-10 col-md-offset-1">
     <h2>Notre team : </h2>
     <div class="row">
         <div class="col-md-3 col-md-offset-2 ">
