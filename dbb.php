@@ -75,6 +75,7 @@ class Utilisateur {
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $sth->execute(array("$login"));
+        return $sth;
     }
 
     public static function deleteUser($dbh,$login){
