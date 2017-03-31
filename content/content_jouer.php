@@ -1,51 +1,84 @@
 <?php
     function afficher_video($video){
         echo <<<CHAINE_DE_FIN
-        <div>
+        <div class="container-fluid row col-md-8 col-md-offset-2">
             <video src="img/$video" controls ></video>   
         </div>
 CHAINE_DE_FIN;
     }
     
-    function afficher_questions($question,$rep1,$rep2,$rep3,$rep4,$bonneréponse){
+    function afficher_questions($question,$rep1,$rep2,$rep3,$rep4){
         echo <<<CHAINE_DE_FIN
-        <form action="?page=jouer" method="post">
-        <fieldset class="form-group row cadre">
+        <div class="container-fluid row col-md-8 col-md-offset-2">
+        <form class="form-group row cadre" action="?page=jouer" method="post">
           <legend class="col-form-legend col-sm-2">$question</legend>
           <div class="col-sm-8 col-md-offset-2">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <input class="form-check-input" type="radio" name="choix" value="1" checked>
                 $rep1
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" checked>
+                <input class="form-check-input" type="radio" name="choix" value="2">
                 $rep2
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" checked>
+                <input class="form-check-input" type="radio" name="choix" value="3">
                 $rep3
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4" checked>
+                <input class="form-check-input" type="radio" name="choix" value="4">
                 $rep4
               </label>
             </div>
+            <button type="submit" class="btn btn-default">Valider</button>
           </div>
-        </fieldset>
+        </form>
+        </div>
 CHAINE_DE_FIN;
     }
-?>
+ 
+    
+$form_values_valid=false;
+$bonne_reponse=$reponse;
 
-<div class="row col-md-10 col-md-offset-1"> 
-    <?php
-        afficher_video("Lucky_Charmz.webmsd.webm");
-        afficher_questions("??","1.","vgvgv","vygyftdrsrs","aucune idée connard"); 
-    ?>  
-</div>
+
+function corriger($reponse){
+      if((isset($choixdujoueur)) && ($reponse == $choixdujoueur)){
+      $form_values_valid = true;
+  }
+}
+    
+    
+    
+function jeu($video,$question,$reponse,$rep1,$rep2,$rep3,$rep4){
+     afficher_video($video);
+     afficher_questions($question,$reponse,$rep1,$rep2,$rep3,$rep4);
+}
+
+
+if (isset($_POST["choix"])) $choixdujoueur = $_POST["choix"];
+
+    
+// code de traitement du formulaire : 
+    
+
+
+  
+  if(!$form_values_valid){
+      afficher_video("Lucky_Charmz.webmsd.webm");
+      afficher_questions("??","3","1.","vgvgv","vygyftdrsrs","aucune idée connard");
+  }
+  else{
+      echo 'bravo vous avez gagné un ticket';
+  }
+
+     
+
+
