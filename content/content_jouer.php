@@ -2,7 +2,7 @@
     function afficher_video($video){
         echo <<<CHAINE_DE_FIN
         <div class="container-fluid row col-md-8 col-md-offset-2">
-            <video src="img/$video" controls ></video>   
+            <video src="videos/$video->nom" controls ></video>   
         </div>
 CHAINE_DE_FIN;
     }
@@ -15,25 +15,25 @@ CHAINE_DE_FIN;
           <div class="col-sm-8 col-md-offset-2">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="choix" value="1" checked>
+                <input class="form-check-input" type="radio" name="choix" value="$rep1" checked>
                 $rep1
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="choix" value="2">
+                <input class="form-check-input" type="radio" name="choix" value="$rep2">
                 $rep2
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="choix" value="3">
+                <input class="form-check-input" type="radio" name="choix" value="$rep3">
                 $rep3
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="choix" value="4">
+                <input class="form-check-input" type="radio" name="choix" value="$rep4">
                 $rep4
               </label>
             </div>
@@ -46,34 +46,27 @@ CHAINE_DE_FIN;
  
     
 $form_values_valid=false;
-$bonne_reponse=$reponse;
+$id="1";
+$video=Video::getVideoWithID($dbh, $id);
 
-
-function corriger($reponse){
-      if((isset($choixdujoueur)) && ($reponse == $choixdujoueur)){
-      $form_values_valid = true;
-  }
-}
-    
-    
-    
-function jeu($video,$question,$reponse,$rep1,$rep2,$rep3,$rep4){
-     afficher_video($video);
-     afficher_questions($question,$reponse,$rep1,$rep2,$rep3,$rep4);
-}
-
-
-if (isset($_POST["choix"])) $choixdujoueur = $_POST["choix"];
-
-    
 // code de traitement du formulaire : 
     
-
-
+if(isset($_POST["choix"])) {
+      
+  // code de traitement, à écrire maintenant
+  
+  if(($video != NULL) && (Video::testerReponse($dbh,$id,$_POST["choix"])) ){     
+      $form_values_valid = true;
+      echo $form_values_valid;   
+  }
+ else {
+    echo'mauvaise réponse';
+  }
+}
   
   if(!$form_values_valid){
-      afficher_video("Lucky_Charmz.webmsd.webm");
-      afficher_questions("??","3","1.","vgvgv","vygyftdrsrs","aucune idée connard");
+      afficher_video($video);
+      afficher_questions($video->question,$video->right_answer,$video->wrong_answer1,$video->wrong_answer1,$video->wrong_answer1);
   }
   else{
       echo 'bravo vous avez gagné un ticket';
