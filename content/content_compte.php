@@ -7,7 +7,8 @@
     echo "<h1> Bonjour $prenom_secure</h1>";
     if ($admin){
         echo "<p>Vous êtes admin</p>";
-        require 'admin/insererVideo.php';
+        require 'admin/insererVideoForm.php';
+        require 'admin/rendreAdminForm.php';
     }
     else {
         echo "<p>Vous êtes joueur</p>";
