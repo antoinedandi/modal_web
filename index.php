@@ -1,6 +1,7 @@
 <?php
 require "utilities/utils.php";
 require "dbb.php";
+require "utilisateur.php";
 require "logInOut.php";
 require "printForms.php";
 session_name("NomSessionDifficileaTrouver");
