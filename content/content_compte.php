@@ -9,6 +9,7 @@
         echo "<p>Vous êtes admin</p>";
         require 'admin/insererVideoForm.php';
         require 'admin/rendreAdminForm.php';
+        require 'admin/ajouterCagnotteForm.php';
     }
     else {
         echo "<p>Vous êtes joueur</p>";
