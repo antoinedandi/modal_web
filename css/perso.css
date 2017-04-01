@@ -39,6 +39,18 @@ body {
     padding-bottom: 20px;
  
 }
+.cadre_transparent{
+    border-radius: 10px;
+    
+    background-color: rgba(238, 238, 238,0.7);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ 
+}
 
 
 h1,h2,h3,p {

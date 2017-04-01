@@ -32,7 +32,7 @@ if(isset($_POST["name"]) && $_POST["name"] != "" &&
 
 if (!$form_values_valid) {
     echo <<<CHAINE_DE_FIN
-    <div class="container-fluid row col-md-8 col-md-offset-2">
+    <div class="row col-md-8 col-md-offset-2 cadre_transparent">
     <form action="?page=inscription" method="post"
           oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
         <div class="form-group">
@@ -64,6 +64,12 @@ if (!$form_values_valid) {
 </div>   
 CHAINE_DE_FIN;
 }else{
-    echo 'felicitation vous etes inscrits à Lotopub';
+    echo <<<FIN
+    <div class="row col-md-8 col-md-offset-2 cadre_transparent">
+        <h1>Félicitations </h1>
+        <p>Vous êtes bien inscrit à Lotopub</p>
+        <p>Connectez vous dès maintenant pour profitez du jeu</p>
+    </div>
+FIN;
 }
 

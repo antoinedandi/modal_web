@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
 
-    <div class="jumbotron">
+    <div class="jumbotron cadre_transparent">
         <h1>Bienvenue sur lotopub</h1>
         <p>Ici, vous pouvez jouer gratuitement pour gagner de l'argent.
             Le principe est très simple, vous regardez une pub et 

@@ -1,5 +1,5 @@
 
-<div class="row col-md-10 col-md-offset-1">
+<div class="row col-md-10 col-md-offset-1 cadre_transparent">
     <h2>Notre team : </h2>
     <div class="row">
         <div class="col-md-3 col-md-offset-2 ">
