@@ -41,7 +41,6 @@ body {
 }
 .cadre_transparent{
     border-radius: 10px;
-    
     background-color: rgba(238, 238, 238,0.7);
     padding-right: 15px;
     padding-left: 15px;
@@ -51,7 +50,6 @@ body {
     padding-bottom: 20px;
  
 }
-
 
 h1,h2,h3,p {
     text-align: center;

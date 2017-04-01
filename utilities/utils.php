@@ -106,13 +106,11 @@ FIN;
            
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href=index.php?page=changePassword><i class="icon-cog"></i> change password</a></li>
-                            <li><a href=index.php?page=deleteUser><i class="icon-envelope"></i> delete account</a></li>
+                            <li><a href='index.php?page=changePassword'>Changer de mot de passe</a></li>
+                            <li><a href='index.php?page=deleteUser'>Supprimer mon compte</a></li>
                             <li class="divider"></li>
-                            <li><form action='index.php?todo=logout' method='post'>
-                                    <p><input type="submit" value="Logout" /></p>
-                                </form>
-                            </li>
+                            <li><a href='index.php?todo=logout'>Se déconnecter</a></li>
+                            
                         </ul>
                     </li>
 CHAINE_DE_FIN;
