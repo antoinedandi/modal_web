@@ -10,7 +10,7 @@ class Cagnotte{
         $c = $sth->fetch();
         // $sth : boolean qui dit si ca a marché ou pas
         $sth->closeCursor();
-        return ($sth)? $c->montant: null;
+        return ($sth)? $c->montant: "error";
 }
     public static function updateMontant($dbh, $i){
         $query="UPDATE `variables_globales` SET `valeur`=`valeur`+?  WHERE `nom`='cagnotte'";
