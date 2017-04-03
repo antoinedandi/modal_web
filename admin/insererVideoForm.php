@@ -4,7 +4,6 @@ if (isset($_GET["todo"]) && ($_GET["todo"] == "submitVideo")) {
     echo "<p class='cadre row'>";
     $temp=empty($_FILES['video']['tmp_name']);
     $aux=is_uploaded_file($_FILES['video']['tmp_name']);
-    echo "$temp et $aux";
     if (!empty($_FILES['video']['tmp_name']) && is_uploaded_file($_FILES['video']['tmp_name'])) {
         // Le fichier a bien été téléchargé
 
