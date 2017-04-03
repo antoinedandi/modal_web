@@ -6,15 +6,15 @@
             <file>file:/C:/xampp/htdocs/Modal/modal_web/.gitignore</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/index.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/css/perso.css</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/printForms.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_inscription.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_jouer.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/video.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/Tirage.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/utilities/utils.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_compte.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/logInOut.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_news.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_welcome.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/dbb.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/admin/rendreAdminForm.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/utilisateur.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_contacts.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/admin/insererVideoForm.php</file>
         </group>
     </open-files>

@@ -74,7 +74,6 @@ FIN;
 
     if (!$form_values_valid) {
         afficher_video($video);
-        //Il faut 
         afficher_questions($video->question, $video->right_answer, $video->wrong_answer1, $video->wrong_answer1, $video->wrong_answer1);
     } else {
         echo <<<FIN

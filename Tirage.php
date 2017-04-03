@@ -1,5 +1,7 @@
 <?php
 class Cagnotte{
+    
+    private $nom;
     private $montant;//Le montant n'est pas accessible car il doit être toujours à jour
     //avec la bdd. 
     public static function getMontant($dbh){
@@ -10,7 +12,7 @@ class Cagnotte{
         $c = $sth->fetch();
         // $sth : boolean qui dit si ca a marché ou pas
         $sth->closeCursor();
-        return ($sth)? $c->montant: "error";
+        return ($sth)? "bla": "error";
 }
     public static function updateMontant($dbh, $i){
         $query="UPDATE `variables_globales` SET `valeur`=`valeur`+?  WHERE `nom`='cagnotte'";
