@@ -73,6 +73,18 @@ class Utilisateur {
         return $sth;
     }
     
+        public static function tirage_au_sort($dbh){
+        $query="SELECT login, tickets FROM `utilisateurs`";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute();
+        $user =$sth->fetch();
+        // $sth : boolean qui dit si ca a marché ou pas
+        $sth->closeCursor();
+        print_r($user);
+        return ($sth)? $user: null;
+    }
+    
 }
 /* 
  * To change this license header, choose License Headers in Project Properties.
