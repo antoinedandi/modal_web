@@ -10,6 +10,7 @@
         require 'admin/insererVideoForm.php';
         require 'admin/rendreAdminForm.php';
         require 'admin/ajouterCagnotteForm.php';
+        require 'admin/effectuerTirage.php';
     }
     else {
         echo "<p>Vous êtes joueur</p>";
