@@ -1,0 +1,24 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper { display: table; }
+
+.cell {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.cntSeparator { display: none; }
+
+.cntDigit {
+    margin-top: 10px !important;
+}
+
+
+  .cntDigit#cnt_2 { margin-left: 20px; }

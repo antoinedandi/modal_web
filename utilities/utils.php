@@ -14,10 +14,6 @@ $page_list = array(
         "title" => "inscription",
         "menutitle" => "s'inscrire"),
     array(
-        "name" => "news",
-        "title" => "on vous tient au courant",
-        "menutitle" => "dernières nouvelles"),
-    array(
         "name" => "contacts",
         "title" => "Qui sommes-nous ?",
         "menutitle" => "Nous contacter"),
@@ -44,10 +40,6 @@ $page_list_menu = array(
         "name" => "jouer",
         "title" => "Le jeu",
         "menutitle" => "Jouer !"),
-    array(
-        "name" => "news",
-        "title" => "on vous tient au courant",
-        "menutitle" => "dernières nouvelles"),
     array(
         "name" => "contacts",
         "title" => "Qui sommes-nous ?",

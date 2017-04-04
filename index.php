@@ -19,11 +19,11 @@ $dbh = Database::connect();
 
 // traitement des contenus de formulaires
 //post get
-if(isset($_POST["login"]) && isset($_GET["todo"]) && ($_GET["todo"] == "login") ) {
+if (isset($_POST["login"]) && isset($_GET["todo"]) && ($_GET["todo"] == "login")) {
     logIn($dbh);
 }
 
-if(isset($_GET["todo"]) && ($_GET["todo"] == "logout")) {
+if (isset($_GET["todo"]) && ($_GET["todo"] == "logout")) {
     logOut();
 }
 
@@ -35,14 +35,14 @@ if (isset($_GET['page'])) {
 }
 
 /* debuggage login
-// affichage de formulaires
-if( isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] && isset($_SESSION['login']) ) {
-     echo "<p>Bonjour, " . $_SESSION["login"] . " !</p>";
-     printLogoutForm();
-} else {
-    printLoginForm($askedPage);
-}
-*/
+  // affichage de formulaires
+  if( isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] && isset($_SESSION['login']) ) {
+  echo "<p>Bonjour, " . $_SESSION["login"] . " !</p>";
+  printLogoutForm();
+  } else {
+  printLoginForm($askedPage);
+  }
+ */
 
 // page title
 $authorized = checkPage($askedPage);
@@ -57,7 +57,7 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
 <nav id="menu">
     <?php
-        generateMenu($page_list_menu,$askedPage);
+    generateMenu($page_list_menu, $askedPage);
     ?>
 </nav>
 
@@ -79,6 +79,19 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/code.js"></script>
+
+<!-- Code javascript du compte à rebours -->
+<script src="js/jquery.countdown.js"></script>
+<link href="css/countdown.css" rel="stylesheet" type="text/css" />
+<script>
+    $(function () {
+        $(".digits").countdown({
+            image: "img/digits.png",
+            format: "dd:hh:mm:ss",
+            endTime: new Date(2017, 04, 5)
+        });
+    });
+</script>
 
 
 <?php
