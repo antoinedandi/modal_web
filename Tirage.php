@@ -5,14 +5,14 @@ class Cagnotte{
     private $montant;//Le montant n'est pas accessible car il doit être toujours à jour
     //avec la bdd. 
     public static function getMontant($dbh){
-        $query = "SELECT * FROM `variables_globales` WHERE `nom` = 'cagnotte'";
+        $query = "SELECT `Valeur` FROM `variables_globales` WHERE `Nom` = 'cagnotte'";
         $sth = $dbh->prepare($query);
-        $sth->setFetchMode(PDO::FETCH_CLASS, 'Cagnotte');
-        $sth->execute();
-        $c = $sth->fetch();
-        // $sth : boolean qui dit si ca a marché ou pas
+        if (!$sth->execute()){
+            return "Il manque un message d'erreur ici";
+        }
+        $c = $sth->fetch(PDO::FETCH_ASSOC);
         $sth->closeCursor();
-        return ($sth)? "bla": "error";
+        return $c['Valeur'];
 }
     public static function updateMontant($dbh, $i){
         $query="UPDATE `variables_globales` SET `valeur`=`valeur`+?  WHERE `nom`='cagnotte'";
