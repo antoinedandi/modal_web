@@ -1,11 +1,11 @@
 <?php
 require "utilities/utils.php";
-require "dbb.php";
-require "cagnotte.php";
-require "video.php";
-require "utilisateur.php";
-require "logInOut.php";
-require "printForms.php";
+require "utilities/logInOut.php";
+require "utilities/printForms.php";
+require "utilities/bdd/dbb.php";
+require "utilities/bdd/cagnotte.php";
+require "utilities/bdd/video.php";
+require "utilities/bdd/utilisateur.php";
 session_name("NomSessionDifficileaTrouver");
 session_start();
 if (!isset($_SESSION['initiated'])) {
