@@ -72,20 +72,30 @@ class Utilisateur {
         $sth->execute(array("$user->login"));
         return $sth;
     }
-    
-        public static function tirage_au_sort($dbh){
-        $query="SELECT login, tickets FROM `utilisateurs`";
+
+    public static function tirage_au_sort($dbh) {
+        $query = "SELECT login, tickets FROM `utilisateurs`";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $sth->execute();
-        $user =$sth->fetch();
+        $users = $sth->fetchAll();
         // $sth : boolean qui dit si ca a marché ou pas
         $sth->closeCursor();
-        print_r($user);
-        return ($sth)? $user: null;
+        //$users_ponderé : array qui comporte les logins des utilisateurs 
+        //ponderé par leur nombre de tickets
+        $users_ponderé = array();
+        foreach ($users as $value) {
+            for ($i = 0; $i < $value->tickets; $i++) {
+                array_push($users_ponderé, $value->login);
+            }
+        }
+        //print_r($users_ponderé);
+        $gagnant = $users_ponderé[array_rand($users_ponderé)]; 
+        return ($sth) ? $gagnant : null;
     }
-    
+
 }
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

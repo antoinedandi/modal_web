@@ -1,7 +1,7 @@
 <?php
 require "utilities/utils.php";
 require "dbb.php";
-require "Tirage.php";
+require "cagnotte.php";
 require "video.php";
 require "utilisateur.php";
 require "logInOut.php";
