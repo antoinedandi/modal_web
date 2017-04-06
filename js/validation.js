@@ -9,7 +9,7 @@ $(document).ready(function () {
             email = $('#email');
 
 
-    // Quand on le 
+    // Validation du formulaire
     form.on('submit', function (e) {
 
         // Is everything entered correctly?
@@ -46,14 +46,17 @@ $(document).ready(function () {
         $.post("scripts/testUser.php", {login: loginSaisi}, function (rep) {
             if (rep == 0) {//login non utilisé
                 $("#loginVu").hide();
-                if (/^[a-zA-Z0-9 _-]+$/.test(login.val())) {
+                if (/^[a-zA-Z0-9 _-]+$/.test(login.val())) { //le login est valide
                     $("#messageLogin").hide();
+                    $("#create_user_btn").removeAttr("disabled");
                     login.addClass('succes').removeClass('erreur');
                 } else {
+                    $("#create_user_btn").attr('disabled','disabled');
                     login.addClass('erreur').removeClass('succes');
                     $("#messageLogin").show();
                 }
             } else {
+                $("#create_user_btn").attr('disabled','disabled');
                 login.addClass('erreur').removeClass('succes');
                 $("#loginVu").show();
                 $("#messageLogin").hide();

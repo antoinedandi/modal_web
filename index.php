@@ -3,7 +3,7 @@ require "utilities/utils.php";
 require "utilities/logInOut.php";
 require "utilities/printForms.php";
 require "utilities/bdd/dbb.php";
-require "utilities/bdd/cagnotte.php";
+require "utilities/bdd/VariablesGlobales.php";
 require "utilities/bdd/video.php";
 require "utilities/bdd/utilisateur.php";
 session_name("NomSessionDifficileaTrouver");
@@ -83,16 +83,9 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
 <!-- Code javascript du compte à rebours -->
 <script src="js/jquery.countdown.js"></script>
+<script src="js/code.js"></script>
 <link href="css/countdown.css" rel="stylesheet" type="text/css" />
-<script>
-    $(function () {
-        $(".digits").countdown({
-            image: "img/digits.png",
-            format: "dd:hh:mm:ss",
-            endTime: new Date(2017, 04, 5)
-        });
-    });
-</script>
+
 
 
 <?php
