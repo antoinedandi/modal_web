@@ -21,6 +21,14 @@ class Cagnotte{
         $sth->execute(array("$i"));
         return $sth;
     }
+    public static function resetMontant($dbh){
+        $query="UPDATE `variables_globales` SET `valeur`=0  WHERE `nom`='cagnotte'";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Cagnotte');
+        $sth->execute();
+        return $sth;
+    }
+
     
     
 }
