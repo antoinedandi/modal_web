@@ -49,6 +49,7 @@ if (!$form_values_valid) {
             <label for="login">Login :</label>
             <input id="login" type="text" required name="login" value="$login" class="form-control">
             <p class="messageErreur" id="messageLogin" hidden>Tapez un login valide</p>
+            <p class="messageErreur" id="loginVu" hidden>Ce login est déjà pris !</p>
         </div>
         <div class="form-group">
             <label for="email">Email :</label>

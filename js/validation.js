@@ -39,16 +39,27 @@ $(document).ready(function () {
         }
 
     });
-    // Validation du login
-    login.on('blur', function () {
-        if (!/^[a-zA-Z0-9 _-]+$/.test(login.val())) {
-            login.addClass('erreur').removeClass('succes');
-            $('#messageLogin').show();
-        } else {
-            login.removeClass('erreur').addClass('succes');
-            $('#messageLogin').hide();
-        }
 
+    //Validation du login & Vérification qu'il n'est pas déjà pris
+    login.keyup(function () {
+        var loginSaisi = login.val();
+        $.post("scripts/testUser.php", {login: loginSaisi}, function (rep) {
+            if (rep == 0) {//login non utilisé
+                $("#loginVu").hide();
+                if (/^[a-zA-Z0-9 _-]+$/.test(login.val())) {
+                    $("#messageLogin").hide();
+                    login.addClass('succes').removeClass('erreur');
+                } else {
+                    login.addClass('erreur').removeClass('succes');
+                    $("#messageLogin").show();
+                }
+            } else {
+                login.addClass('erreur').removeClass('succes');
+                $("#loginVu").show();
+                $("#messageLogin").hide();
+            }
+           
+        });
     });
 
     // Validation du mail
@@ -65,7 +76,7 @@ $(document).ready(function () {
 
     //Validation du premier mot de passe avec complexité minimale
 
-    pass1.complexify({minimumChars: 6, strengthScaleFactor:0.7}, function (valid, complexity) {
+    pass1.complexify({minimumChars: 6, strengthScaleFactor: 0.7}, function (valid, complexity) {
         var barre = $('#complexity-bar');
         if (valid) {
             barre.addClass('progress-bar-success').removeClass('progress-bar-danger');
@@ -82,7 +93,7 @@ $(document).ready(function () {
             pass1.removeClass('succes')
                     .addClass('erreur');
         }
-        var prop=complexity+'%';
+        var prop = complexity + '%';
         barre.css('width', prop);
     });
     // Validation du second mot de passe 
