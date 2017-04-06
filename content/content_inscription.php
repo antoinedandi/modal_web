@@ -67,7 +67,7 @@ if (!$form_values_valid) {
         </div>
         <div class="form-group">
             <label for="password2">Confirmez votre mot de passe :</label>
-            <input id="password2" type="password" name="up2" class="form-control" disabled>
+            <input id="password2" type="password" name="up2" class="form-control" placeholder="Tapez d'abord votre mot de passe" disabled>
             <p class="messageErreur" id="messagePass2" hidden>Les mots de passe diffèrent</p>
         </div>
         <button type="submit" class="btn btn-info" id="create_user_btn" disabled>Créez votre compte !</button>

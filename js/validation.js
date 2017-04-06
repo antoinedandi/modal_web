@@ -11,15 +11,13 @@ $(document).ready(function () {
 
     // Validation du formulaire
     form.on('submit', function (e) {
-
-        // Is everything entered correctly?
         if (!$('#inscription .form_group.succes').length == $('#inscription .form-group').length) {
             e.preventDefault();
         }
     });
     // Validation du nom
     name.on('blur', function () {
-        if (!/^[a-zA-Z -']+$/.test(name.val())) {
+        if (!/^[a-zA-Z]+[a-zA-Z -']*[a-zA-Z]+$/.test(name.val())) {
             name.addClass('erreur').removeClass('succes');
             $('#messageName').show();
         } else {
@@ -30,7 +28,7 @@ $(document).ready(function () {
     });
     // Validation du prénom
     first_name.on('blur', function () {
-        if (!/^[a-zA-Z '-]+$/.test(first_name.val())) {
+        if (!/^[a-zA-Z]+[a-zA-Z -']*[a-zA-Z]+$/.test(first_name.val())) {
             first_name.addClass('erreur').removeClass('succes');
             $('#messageFName').show();
         } else {
@@ -85,6 +83,7 @@ $(document).ready(function () {
             barre.addClass('progress-bar-success').removeClass('progress-bar-danger');
             $('#messagePass').hide();
             pass2.removeAttr('disabled');
+            pass2.removeAttr('placeholder');
 
             pass1.removeClass('erreur')
                     .addClass('succes');
@@ -92,6 +91,7 @@ $(document).ready(function () {
             barre.removeClass('progress-bar-success').addClass('progress-bar-danger');
             $('#messagePass').show();
             pass2.attr('disabled', 'true');
+            pass2.attr('placeholder', "Choisissez d'abord un mot de passe valide ! :)");
 
             pass1.removeClass('succes')
                     .addClass('erreur');
