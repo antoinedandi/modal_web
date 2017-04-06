@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/index.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_welcome.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/Tirage.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/utilities/utils.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/admin/effectuerTirage.php</file>
         </group>
     </open-files>
 </project-private>

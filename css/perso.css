@@ -67,3 +67,14 @@ video {
     width: 100%;
     height: auto;
 }
+/***validation du formulaire d'inscription***/
+
+#inscription input:hover{
+    background-color:#C4FEF9;
+}
+#inscription input.succes{
+    background-color: #D6FFD3;
+}
+#inscription input.erreur{
+    background-color:#FF886E;
+}

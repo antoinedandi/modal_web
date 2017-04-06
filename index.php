@@ -78,7 +78,8 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/code.js"></script>
+<script type="text/javascript" src="js/jquery.complexify.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
 
 <!-- Code javascript du compte à rebours -->
 <script src="js/jquery.countdown.js"></script>

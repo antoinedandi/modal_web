@@ -34,8 +34,7 @@ if (!$form_values_valid) {
     echo <<<CHAINE_DE_FIN
     <div class="row col-md-8 col-md-offset-2 cadre_transparent">
     <h2>Formulaire d'inscription</h2>
-    <form action="?page=inscription" method="post"
-          oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
+    <form action="?page=inscription" method="post" id="inscription">
         <div class="form-group">
             <label for="name">Nom :</label>
             <input id="name" type="text" required name="name" value="$name" class="form-control">
@@ -56,9 +55,13 @@ if (!$form_values_valid) {
             <label for="password1">Mot de passe :</label>
             <input id="password1" type="password" required name="up" class="form-control">
         </div>
+        <div class="progress">
+            <div id="complexity-bar" class="progress-bar progress-bar-danger"  role="progressbar" style="width:0%">
+            </div>
+        </div>
         <div class="form-group">
             <label for="password2">Confirmez votre mot de passe :</label>
-            <input id="password2" type="password" name="up2" class="form-control">
+            <input id="password2" type="password" name="up2" class="form-control" disabled>
         </div>
         <button type="submit" class="btn btn-default">Créez votre compte !</button>
     </form>
@@ -73,4 +76,6 @@ CHAINE_DE_FIN;
     </div>
 FIN;
 }
+?>
+
 
