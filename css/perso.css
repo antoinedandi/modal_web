@@ -78,3 +78,8 @@ video {
 #inscription input.erreur{
     background-color:#FF886E;
 }
+.messageErreur{
+    text-align: left;
+    font-size:9px;
+    color: #FF886E;
+}

@@ -21,8 +21,10 @@ $(document).ready(function () {
     name.on('blur', function () {
         if (!/^[a-zA-Z -']+$/.test(name.val())) {
             name.addClass('erreur').removeClass('succes');
+            $('#messageName').show();
         } else {
             name.removeClass('erreur').addClass('succes');
+            $('#messageName').hide();
         }
 
     });
@@ -30,8 +32,10 @@ $(document).ready(function () {
     first_name.on('blur', function () {
         if (!/^[a-zA-Z '-]+$/.test(first_name.val())) {
             first_name.addClass('erreur').removeClass('succes');
+            $('#messageFName').show();
         } else {
             first_name.removeClass('erreur').addClass('succes');
+            $('#messageFName').hide();
         }
 
     });
@@ -39,8 +43,10 @@ $(document).ready(function () {
     login.on('blur', function () {
         if (!/^[a-zA-Z0-9 _-]+$/.test(login.val())) {
             login.addClass('erreur').removeClass('succes');
+            $('#messageLogin').show();
         } else {
             login.removeClass('erreur').addClass('succes');
+            $('#messageLogin').hide();
         }
 
     });
@@ -50,8 +56,10 @@ $(document).ready(function () {
         // simple validation d'email 
         if (!/^\S+@\S+\.\S+$/.test(email.val())) {
             email.addClass('erreur').removeClass('succes');
+            $('#messageEmail').show();
         } else {
             email.removeClass('erreur').addClass('succes');
+            $('#messageEmail').hide();
         }
     });
 
@@ -61,12 +69,14 @@ $(document).ready(function () {
         var barre = $('#complexity-bar');
         if (valid) {
             barre.addClass('progress-bar-success').removeClass('progress-bar-danger');
+            $('#messagePass').hide();
             pass2.removeAttr('disabled');
 
             pass1.removeClass('erreur')
                     .addClass('succes');
         } else {
             barre.removeClass('progress-bar-success').addClass('progress-bar-danger');
+            $('#messagePass').show();
             pass2.attr('disabled', 'true');
 
             pass1.removeClass('succes')
@@ -80,10 +90,11 @@ $(document).ready(function () {
 
         // Make sure it equals the first
         if (pass2.val() == pass1.val()) {
-
+            $('#messagePass2').hide();
             pass2.removeClass('erreur')
                     .addClass('succes');
         } else {
+            $('#messagePass2').show();
             pass2.removeClass('succes')
                     .addClass('erreur');
         }
