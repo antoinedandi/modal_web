@@ -34,16 +34,6 @@ if (isset($_GET['page'])) {
     $askedPage = "welcome";
 }
 
-/* debuggage login
-  // affichage de formulaires
-  if( isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] && isset($_SESSION['login']) ) {
-  echo "<p>Bonjour, " . $_SESSION["login"] . " !</p>";
-  printLogoutForm();
-  } else {
-  printLoginForm($askedPage);
-  }
- */
-
 // page title
 $authorized = checkPage($askedPage);
 if ($authorized == TRUE) {
@@ -84,7 +74,7 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <!-- Code javascript du compte à rebours -->
 <script src="js/jquery.countdown.js"></script>
 <script src="js/code.js"></script>
-<link href="css/countdown.css" rel="stylesheet" type="text/css" />
+
 
 
 

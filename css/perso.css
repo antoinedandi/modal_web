@@ -83,3 +83,13 @@ video {
     font-size:9px;
     color: #FF886E;
 }
+
+/***Transitions entre les pages***/
+#content .row{
+    transition: 0.5s ease;
+}
+.goOut{
+    transform: translateX(200px);
+    opacity: 0;
+    
+}

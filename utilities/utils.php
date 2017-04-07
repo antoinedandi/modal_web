@@ -139,6 +139,7 @@ function generateHTMLHeader($titre, $link_1_css, $link_2_css) {
                         <title>$titre</title>
                         <link href="$link_1_css" rel="stylesheet">
                         <link href="$link_2_css" rel="stylesheet">
+                        <link href="css/countdown.css" rel="stylesheet" type="text/css" />
                         
                     </head>
                     <body>
