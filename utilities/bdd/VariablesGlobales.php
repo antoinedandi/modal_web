@@ -38,7 +38,6 @@ class Cagnotte {
 
 class Tirage {
 
-    private $date;
 
     public static function getDateTirage($dbh) {
         $query = "SELECT `Date_tirage` FROM `variables_globales` WHERE `Nom` = 'tirage'";
@@ -48,12 +47,14 @@ class Tirage {
         }
         $c = $sth->fetch(PDO::FETCH_ASSOC);
         $sth->closeCursor();
-        return $c['Date_tirage'];
+        $elements=explode(' ', $c['Date_tirage']);
+        $date=explode('-', $elements[0]);
+       
+        return $date;
     }
     public static function setDateTirage($dbh,$new_date) {
         $query = "UPDATE `variables_globales` SET `date_tirage`=?  WHERE `nom`='tirage'";
         $sth = $dbh->prepare($query);
-        $sth->setFetchMode(PDO::FETCH_CLASS, 'Cagnotte');
         $sth->execute(array("$new_date"));
         return $sth;
     }

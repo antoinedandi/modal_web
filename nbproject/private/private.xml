@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/scripts/testUser.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/utilities/bdd/utilisateur.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/js/jquery.countdown.js</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/index.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/css/perso.css</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_inscription.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/js/validation.js</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/scripts/getDateTirage.php</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/utilities/bdd/VariablesGlobales.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/content/content_changePassword.php</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/css/countdown.css</file>
+            <file>file:/C:/xampp/htdocs/Modal/modal_web/utilities/utils.php</file>
             <file>file:/C:/xampp/htdocs/Modal/modal_web/js/code.js</file>
-            <file>file:/C:/xampp/htdocs/Modal/modal_web/admin/effectuerTirage.php</file>
         </group>
     </open-files>
 </project-private>

@@ -97,7 +97,10 @@ $(document).ready(function () {
                     .addClass('erreur');
         }
         var prop = complexity + '%';
+        var aff=Math.floor(complexity)+ '%';
         barre.css('width', prop);
+        barre.text(aff);
+        
     });
     // Validation du second mot de passe 
     pass2.on('keydown input', function () {

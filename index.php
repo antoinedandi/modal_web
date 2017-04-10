@@ -2,7 +2,7 @@
 require "utilities/utils.php";
 require "utilities/logInOut.php";
 require "utilities/printForms.php";
-require "utilities/bdd/dbb.php";
+require "utilities/bdd/bdd.php";
 require "utilities/bdd/VariablesGlobales.php";
 require "utilities/bdd/video.php";
 require "utilities/bdd/utilisateur.php";
@@ -74,10 +74,21 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <!-- Code javascript du compte à rebours -->
 <script src="js/jquery.countdown.js"></script>
 <script src="js/code.js"></script>
+<script>
+    //Animation du compte à rebours
+    <?php $date=Tirage::getDateTirage($dbh);
+    $annee=$date[0];
+    $mois=$date[1];
+    $jour=$date[2];
+            ?>
+var endTime=new Date(<?php echo $annee?>,<?php echo $mois?>,<?php echo $jour?>);
 
+    $(".digits").countdown({
+        image: "img/digits.png",
+        format: "dd:hh:mm:ss",
+        endTime: new Date(endTime)
+    });
 
-
-
+</script>
 <?php
 generateHTMLFooter();
-?>

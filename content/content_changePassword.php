@@ -29,7 +29,7 @@ if(isset($_POST["up0"]) && $_POST["up0"] != "" &&
 
 if (!$change_password_valid) {
     echo <<<CHAINE_DE_FIN
-    <div class="container-fluid row col-md-8 col-md-offset-2">
+    <div class="container-fluid cadre_transparent row col-md-8 col-md-offset-2">
     <div>
         <p> $login, voulez vous changer de mot de passe? </p>
     </di>

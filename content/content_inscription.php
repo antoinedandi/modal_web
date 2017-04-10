@@ -63,7 +63,7 @@ if (!$form_values_valid) {
         </div>
         <div class="progress">
             <div id="complexity-bar" class="progress-bar progress-bar-danger"  role="progressbar" style="width:0%">
-            </div>
+            0%</div>
         </div>
         <div class="form-group">
             <label for="password2">Confirmez votre mot de passe :</label>

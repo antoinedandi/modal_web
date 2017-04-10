@@ -19,7 +19,7 @@
                     <div id="holder">
                         <div class="digits"></div>
                     </div>
-                </div>
+                </div>            
            
         </div> 
         <div class="col-md-4 col-md-offset-1 cadre_transparent ">

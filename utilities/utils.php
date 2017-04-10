@@ -97,7 +97,7 @@ FIN;
         echo <<<CHAINE_DE_FIN
            
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-right cadre_transparent">
                             <li><a href='index.php?page=changePassword'>Changer de mot de passe</a></li>
                             <li><a href='index.php?page=deleteUser'>Supprimer mon compte</a></li>
                             <li class="divider"></li>
@@ -110,7 +110,7 @@ CHAINE_DE_FIN;
         echo <<<CHAINE_DE_FIN
                     <li class="dropdown" id="menuLogin">
                         <a class="dropdown-toggle menu-item" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-                        <div class="dropdown-menu" style="padding:17px;">
+                        <div class="dropdown-menu dropdown-menu-right cadre_transparent" style="padding:17px;">
 CHAINE_DE_FIN;
         printLoginForm($askedPage);
         echo <<<CHAINE_DE_FIN

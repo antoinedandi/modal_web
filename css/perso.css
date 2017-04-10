@@ -1,10 +1,5 @@
 
-[class*="col-"].gris {
-    background-color: grey;
-    border:solid 1px white;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
+
 
 body { 
   margin:0;
@@ -23,7 +18,7 @@ body {
 }
 
 .jumbotron {
-    background-color:rgba(0,0,0,0);
+    
     color:black;
 }
 
@@ -67,6 +62,9 @@ video {
     width: 100%;
     height: auto;
 }
+.dropdown-menu{
+    width: 200px;
+}
 /***validation du formulaire d'inscription***/
 
 #inscription input:hover{
@@ -85,11 +83,11 @@ video {
 }
 
 /***Transitions entre les pages***/
-#content .row{
+.cadre_transparent, .jumbotron{
     transition: 0.5s ease;
 }
 .goOut{
-    transform: translateX(200px);
+    transform: translateZ(400px);
     opacity: 0;
     
 }
