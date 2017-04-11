@@ -72,6 +72,14 @@ class Utilisateur {
         $sth->execute(array("$user->login"));
         return $sth;
     }
+    
+    public static function incrementSolde($dbh,$i,$user){
+        $query="UPDATE `utilisateurs` SET `solde`=`solde`+? WHERE login=?";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute(array("$i", "$user"));
+        return $sth;
+    }
 
     public static function tirage_au_sort($dbh) {
         $query = "SELECT login, tickets FROM `utilisateurs`";

@@ -17,8 +17,7 @@ body {
     color: white;
 }
 
-.jumbotron {
-    
+.jumbotron { 
     color:black;
 }
 
@@ -90,4 +89,9 @@ video {
     transform: translateZ(400px);
     opacity: 0;
     
+}
+
+.cagnotte{
+    text-align: center;
+    font-size: 50px;   
 }

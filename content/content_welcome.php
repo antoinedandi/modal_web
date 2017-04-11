@@ -26,7 +26,8 @@
             <h2>Cagnotte</h2>
             <?php
             $montant = Cagnotte::getMontant($dbh);
-            echo "<p> $montant €</p>";
+            //echo "<p> $montant €</p>";
+            echo "<span class='center-block cagnotte label label-primary' style='width:70%'>$montant €</span>";
             ?>
         </div>                
     </div>
