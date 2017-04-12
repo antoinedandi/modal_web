@@ -32,8 +32,8 @@ if (!$change_password_valid) {
     <div class="container-fluid cadre_transparent row col-md-8 col-md-offset-2">
     <div>
         <p> $login, voulez vous changer de mot de passe? </p>
-    </di>
-    <form action="?page=changePassword" method="post"
+    </div>
+    <form action="?page=changePassword" method="post" id="changePassword"
           oninput="up2.setCustomValidity(up2.value != up1.value ? 'Les mots de passe diffèrent.' : '')">
         <div class="form-group">
             <label for="password0">Password:</label>
@@ -42,10 +42,16 @@ if (!$change_password_valid) {
         <div class="form-group">
             <label for="password1">New password:</label>
             <input id="password1" type="password" required name="up1" class="form-control">
+            <p class="messageErreur" id="messagePass" hidden>Le mot de passe n'est pas assez fort</p>
+        </div>
+        <div class="progress">
+            <div id="complexity-bar" class="progress-bar progress-bar-danger"  role="progressbar" style="width:0%">
+            0%</div>
         </div>
         <div class="form-group">
             <label for="password2">Confirm password:</label>
-            <input id="password2" type="password" name="up2" class="form-control">
+            <input id="password2" type="password" name="up2" class="form-control" placeholder="Tapez d'abord votre mot de passe" disabled>
+            <p class="messageErreur" id="messagePass2" hidden>Les mots de passe diffèrent</p>
         </div>
         <button type="submit" class="btn btn-default">change password</button>
     </form>
