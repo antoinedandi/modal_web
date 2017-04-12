@@ -43,7 +43,7 @@ FIN;
             <a role="button" class="btn btn-secondary" href="index.php?page=deleteUser" >Supprimer mon compte</a>
             <a role="button" class="btn btn-secondary" href="index.php?todo=logout" >Deconnexion</a>
         </div>
-    </div>
+    
 FIN;
     ?>
 </div>

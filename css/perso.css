@@ -94,11 +94,11 @@ video {
 }
 .goOut{
     transform: translateX(400px);
-    opacity: 0;
-    
+    opacity: 0;  
 }
 
 .cagnotte{
     text-align: center;
     font-size: 50px;   
+    width:70%;
 }

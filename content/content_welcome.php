@@ -24,4 +24,8 @@
         </div> 
         <div class="col-md-4 col-md-offset-1 cadre_transparent ">
             <h2>Cagnotte</h2>
-<div id="cagnotte"></div>       </div>                    </div></div>
+            <div id="cagnotte" class="cagnotte center-block label  label-primary"></div>      
+        </div>           
+    </div>
+
+</div>

@@ -77,7 +77,14 @@ class Utilisateur {
         $query="UPDATE `utilisateurs` SET `solde`=`solde`+? WHERE login=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $sth->execute(array("$i", "$user"));
+        $sth->execute(array($i, $user));
+        return $sth;
+    }
+    public static function faireGagner($dbh, $login, $montant){
+        $query="UPDATE `utilisateurs` SET `tickets`=0 and `solde`=`solde`+? WHERE login=?";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $sth->execute(array($montant,$login));
         return $sth;
     }
 

@@ -3,9 +3,10 @@ if (isset($_GET['todo']) && $_GET['todo'] == 'doTirage') {
     $gagnant = Utilisateur::tirage_au_sort($dbh);
 
     $montant = Cagnotte::getMontant($dbh);
-    Utilisateur::incrementSolde($dbh,$montant,$gagnant);
+    Utilisateur::faireGagner($dbh,$gagnant,$montant);
     Cagnotte::resetMontant($dbh);
-    echo "<p class='col-md-12 cadre'>";
+    
+    echo "<p class='cadre'>";
 
     echo "Bravo, $gagnant a gagné la loterie";
     echo "</p>";
