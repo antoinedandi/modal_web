@@ -17,8 +17,18 @@
     }
     else {
         echo "<p>Vous êtes joueur</p></div>";
+        $notif=$user->notification;
         $solde = $user->solde;
         $tickets = $user->tickets;
+        if($notif){
+            Utilisateur::incrementNotif($dbh,$user->login,0);
+         echo <<<FIN
+        
+        <div class="row cadre_transparent">
+            <p>Bravo!! vous avez gagné au Lotopub</p>
+        </div>      
+FIN;
+        }
         echo <<<FIN
         
         <div class="row cadre_transparent">
@@ -30,9 +40,7 @@
                 <p>Solde</p>
                 <p>$solde €</p>
             </div>
-        </div>
-        
-       
+        </div>      
 FIN;
          
     }

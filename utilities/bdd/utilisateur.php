@@ -65,23 +65,38 @@ class Utilisateur {
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $sth->execute(array("$login"));
     }
-    public static function incrementTickets($dbh,$user){
+    public static function incrementTickets($dbh,$login){
         $query="UPDATE `utilisateurs` SET `tickets`=`tickets`+1  WHERE login=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $sth->execute(array("$user->login"));
+        $sth->execute(array($login));
         return $sth;
     }
     
-    public static function incrementSolde($dbh,$i,$user){
+    public static function incrementSolde($dbh,$i,$login){
         $query="UPDATE `utilisateurs` SET `solde`=`solde`+? WHERE login=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $sth->execute(array($i, $user));
+        $sth->execute(array($i,$login));
         return $sth;
     }
+    
+    public static function incrementNotif($dbh,$login,$i){
+        $query="UPDATE `utilisateurs` SET `notification`=? WHERE login=?";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        if($i==1){
+            $sth->execute(array(TRUE,$login));
+        }
+        else{
+            $sth->execute(array(NULL,$login)); 
+        }
+        return $sth;
+    }
+    
     public static function faireGagner($dbh, $login, $montant){
-        $sth1=incrementSolde($dbh,$montant,$login);
+        Utilisateur::incrementNotif($dbh,$login,1);
+        $sth1= Utilisateur::incrementSolde($dbh,$montant,$login);
         //On remet tous les tickets à zéro
         if ($sth1){
             $query="UPDATE `utilisateurs` SET `tickets`=0";
@@ -103,14 +118,17 @@ class Utilisateur {
         $sth->closeCursor();
         //$users_ponderé : array qui comporte les logins des utilisateurs 
         //ponderé par leur nombre de tickets
-        $users_ponderé = array();
+        $users_pondere = array();
         foreach ($users as $value) {
             for ($i = 0; $i < $value->tickets; $i++) {
-                array_push($users_ponderé, $value->login);
+                array_push($users_pondere, $value->login);
             }
         }
-        //print_r($users_ponderé);
-        $gagnant = $users_ponderé[array_rand($users_ponderé)]; 
+        //print_r($users_pondere);
+        if(empty($users_pondere)){
+            return NULL;
+        }
+        $gagnant = $users_pondere[array_rand($users_pondere)]; 
         return ($sth) ? $gagnant : null;
     }
 
