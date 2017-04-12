@@ -42,7 +42,7 @@ if (isset($_GET["todo"]) && ($_GET["todo"] == "submitVideo")) {
     echo "</p>";
 } else {
     ?>
-    <form class='col-md-12 cadre' action="index.php?todo=submitVideo&page=compte" method='post' enctype="multipart/form-data">
+    <form class='cadre' action="index.php?todo=submitVideo&page=compte" method='post' enctype="multipart/form-data">
         <label class="control-label">Selectionner une vidéo</label>
         <input name="video" type="file" class="file">
         <label for="question">Question : </label>
@@ -71,7 +71,6 @@ if (isset($_GET["todo"]) && ($_GET["todo"] == "submitVideo")) {
         </div><br/>
         <input type="submit" class='btn btn-info' value ="Ajouter la vidéo">
     </form>
-    <br/>
     <?php
 }
 

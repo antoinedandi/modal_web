@@ -14,20 +14,17 @@
     <div class="row col-md-12">         
         <div class="col-md-7 cadre_transparent">
             <h2>Prochain tirage dans</h2>
-            
-                <div class="cell">
-                    <div id="holder">
-                        <div class="digits"></div>
-                    </div>
-                </div>            
-           
+
+            <div class="cell">
+                <div id="row holder">
+                    <div class="digits"></div>
+                </div>
+            </div>    
+
         </div> 
         <div class="col-md-4 col-md-offset-1 cadre_transparent ">
             <h2>Cagnotte</h2>
-            <?php
-            $montant = Cagnotte::getMontant($dbh);
-            echo "<p> $montant €</p>";
-            ?>
+            <div id="cagnotte"></div>
         </div>                
     </div>
 </div>

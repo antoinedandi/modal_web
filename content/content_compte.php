@@ -1,21 +1,22 @@
+<div class="col-md-12">
 
-<div class="jumbotron col-md-12">
     <?php 
     //On met à jour le user stocké dans SESSION pour avoir des données à jour
     $_SESSION['user']=Utilisateur::getUtilisateur($dbh, $_SESSION['user']-> login);
     $user=$_SESSION['user'];
     $admin=$user->admin;
     $prenom_secure= htmlspecialchars($user->prenom);
-    echo "<h1> Bonjour $prenom_secure</h1>";
+    echo "<div class='jumbotron'><h1> Bonjour $prenom_secure</h1>";
     if ($admin){
-        echo "<p>Vous êtes admin</p>";
+        echo "<p>Vous êtes admin</p></div>";
+        
         require 'admin/insererVideoForm.php';
         require 'admin/rendreAdminForm.php';
         require 'admin/ajouterCagnotteForm.php';
         require 'admin/effectuerTirage.php';
     }
     else {
-        echo "<p>Vous êtes joueur</p>";
+        echo "<p>Vous êtes joueur</p></div>";
         $solde = $user->solde;
         $tickets = $user->tickets;
         echo <<<FIN
@@ -30,18 +31,19 @@
                 <p>$solde €</p>
             </div>
         </div>
+        
        
 FIN;
          
     }
     echo <<<FIN
-    <br/>
-    <br/>
+        
         <div class="row cadre_transparent">
             <a role="button" class="btn btn-secondary" href="index.php?page=changePassword" >Changer mon mot de passe</a>
             <a role="button" class="btn btn-secondary" href="index.php?page=deleteUser" >Supprimer mon compte</a>
             <a role="button" class="btn btn-secondary" href="index.php?todo=logout" >Deconnexion</a>
         </div>
+    </div>
 FIN;
     ?>
 </div>

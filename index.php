@@ -74,21 +74,46 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <!-- Code javascript du compte à rebours -->
 <script src="js/jquery.countdown.js"></script>
 <script src="js/code.js"></script>
+
 <script>
     //Animation du compte à rebours
-    <?php $date=Tirage::getDateTirage($dbh);
-    $annee=$date[0];
-    $mois=$date[1];
-    $jour=$date[2];
-            ?>
-var endTime=new Date(<?php echo $annee?>,<?php echo $mois?>,<?php echo $jour?>);
-
+<?php
+$date = Tirage::getDateTirage($dbh);
+$annee = $date[0];
+$mois = $date[1];
+$jour = $date[2];
+?>
+    var endTime = new Date(<?php echo $annee ?>,<?php echo $mois ?>,<?php echo $jour ?>);
     $(".digits").countdown({
         image: "img/digits.png",
-        format: "dd:hh:mm:ss",
-        endTime: new Date(endTime)
+        format: "hh:mm:ss",
+        endTime: endTime
     });
 
 </script>
+
+<script>
+    //Animation de la cagnotte
+
+
+    var auto_refresh = setInterval(
+            function ()
+            {
+                $.post("scripts/getMontant.php", {}, function (rep) {
+                    $('#cagnotte').text(rep).fadeIn("slow");
+                });
+            }, 1000);
+    //Utile pour le débuggage ! Actualise la cagnotte toutes les 0,1 secondes
+    /*var auto_refresh2 = setInterval(
+            function ()
+            {
+                $.post("scripts/setMontant.php", {}, function (rep) {
+                    
+                });
+            }, 100);*/
+
+
+</script>
+
 <?php
 generateHTMLFooter();

@@ -3,7 +3,7 @@ if (isset($_GET['todo'])&&$_GET['todo']=='upC'){
     $i=$_POST['montant'];
     $ok= Cagnotte::updateMontant($dbh, $i);
     $i_secure= htmlspecialchars($i);
-    echo "<p class='col-md-12 cadre'>";
+    echo "<p class='cadre'>";
     if ($ok){
         echo "Vous avez augmenté la cagnotte de $i_secure €";
     }
@@ -16,7 +16,7 @@ if (isset($_GET['todo'])&&$_GET['todo']=='upC'){
 }
 else{
 ?>
-<form class='col-md-12 cadre' action="index.php?todo=upC&page=compte" method='post'>
+<form class='cadre' action="index.php?todo=upC&page=compte" method='post'>
     <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-eur" aria-hidden='true'></span></span>
         <input type='number' placeholder="Montant" name="montant">

@@ -37,8 +37,6 @@ class Cagnotte {
 }
 
 class Tirage {
-
-
     public static function getDateTirage($dbh) {
         $query = "SELECT `Date_tirage` FROM `variables_globales` WHERE `Nom` = 'tirage'";
         $sth = $dbh->prepare($query);
