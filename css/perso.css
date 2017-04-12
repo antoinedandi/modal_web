@@ -102,3 +102,8 @@ video {
     font-size: 50px;   
     width:70%;
 }
+
+.badge{
+    color: white;
+    background-color: red;
+}

@@ -70,7 +70,7 @@ function getPageTitle($askedPage) {
     }
 }
 
-function generateMenu($page_list_menu, $askedPage) {
+function generateMenu($dbh,$page_list_menu, $askedPage) {
     echo <<<CHAINE_DE_FIN
     <div class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -94,9 +94,10 @@ CHAINE_DE_FIN;
 FIN;
     if (isset($_SESSION['loggedIn'])&& $_SESSION['loggedIn']) {
         $login = htmlspecialchars($_SESSION['user']->login);
+        $notif= Utilisateur::getUtilisateur($dbh, $login)->notification;
         echo <<<CHAINE_DE_FIN
            
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <b class="caret"></b></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <span class="badge">$notif</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-right cadre_transparent">
                             <li><a href='index.php?page=changePassword'>Changer de mot de passe</a></li>
                             <li><a href='index.php?page=deleteUser'>Supprimer mon compte</a></li>

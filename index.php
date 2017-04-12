@@ -47,7 +47,7 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 
 <nav id="menu">
     <?php
-    generateMenu($page_list_menu, $askedPage);
+    generateMenu($dbh,$page_list_menu, $askedPage);
     ?>
 </nav>
 
