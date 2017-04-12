@@ -71,6 +71,17 @@ video {
 #inscription input.erreur{
     background-color:#FF886E;
 }
+
+#changePassword input:hover{
+    background-color:#C4FEF9;
+}
+#changePassword input.succes{
+    background-color: #D6FFD3;
+}
+#changePassword input.erreur{
+    background-color:#FF886E;
+}
+
 .messageErreur{
     text-align: left;
     font-size:9px;
@@ -85,4 +96,9 @@ video {
     transform: translateX(400px);
     opacity: 0;
     
+}
+
+.cagnotte{
+    text-align: center;
+    font-size: 50px;   
 }
