@@ -81,11 +81,16 @@ class Utilisateur {
         return $sth;
     }
     public static function faireGagner($dbh, $login, $montant){
-        $query="UPDATE `utilisateurs` SET `tickets`=0 and `solde`=`solde`+? WHERE login=?";
-        $sth = $dbh->prepare($query);
-        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $sth->execute(array($montant,$login));
-        return $sth;
+        $sth1=incrementSolde($dbh,$montant,$login);
+        //On remet tous les tickets à zéro
+        if ($sth1){
+            $query="UPDATE `utilisateurs` SET `tickets`=0";
+            $sth = $dbh->prepare($query);
+            $sth->execute();
+            return $sth;
+        }
+        return false;
+        
     }
 
     public static function tirage_au_sort($dbh) {

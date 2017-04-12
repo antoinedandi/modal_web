@@ -46,7 +46,7 @@ function afficher_questions($question, $rep) {
         </form>
         </div>
 CHAINE_DE_FIN;
-}   
+}
 
 $form_values_valid = false;
 $id = "1";
@@ -55,36 +55,43 @@ $reponses = array($video->right_answer, $video->wrong_answer1, $video->wrong_ans
 
 //On ne peut accéder au jeu que si on est logé
 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
-    if (isset($_POST["choix"])) {
+    if ($_SESSION['user']->admin) {
+        echo <<<FIN
+        <div class='col-md-8 col-md-offset-2 cadre transparent'>
+            <p>Vous êtes Administrateur donc pas là pour jouer</p>
+        </div>
+FIN;
+    } else {
+        if (isset($_POST["choix"])) {
 
-        // code de traitement
+            // code de traitement
 
-        if (($video != NULL) && (Video::testerReponse($dbh, $id, $_POST["choix"]))) {
-            $form_values_valid = true;
-            echo $form_values_valid;
-            Utilisateur::incrementTickets($dbh, $_SESSION["user"]);
-            Cagnotte::updateMontant($dbh, 1);
-        } else {
-            echo <<<FIN
+            if (($video != NULL) && (Video::testerReponse($dbh, $id, $_POST["choix"]))) {
+                $form_values_valid = true;
+                echo $form_values_valid;
+                Utilisateur::incrementTickets($dbh, $_SESSION["user"]);
+                Cagnotte::updateMontant($dbh, 1);
+            } else {
+                echo <<<FIN
         <div class="row col-md-8 col-md-offset-2 cadre">
                 <p>Mauvaise réponse enculé</p>
         </div>
 FIN;
+            }
         }
-    }
 
-    if (!$form_values_valid) {
-        afficher_video($video);
-        afficher_questions($video->question, $reponses);
-    } else {
-        echo <<<FIN
+        if (!$form_values_valid) {
+            afficher_video($video);
+            afficher_questions($video->question, $reponses);
+        } else {
+            echo <<<FIN
         <div class="row col-md-8 col-md-offset-2 cadre">
                 <p>Bravo! Vous avez gagné un ticket!!</p>
         </div>
 FIN;
+        }
     }
-}
-else {
+} else {
     echo <<<FIN
     <div class='col-md-8 col-md-offset-2 cadre transparent'>
         <p>Il faut être connecté pour accéder au jeu</p>

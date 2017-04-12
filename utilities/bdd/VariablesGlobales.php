@@ -37,7 +37,7 @@ class Cagnotte {
 }
 
 class Tirage {
-    public static function getDateTirage($dbh) {
+     public static function getDateTirage($dbh) {
         $query = "SELECT `Date_tirage` FROM `variables_globales` WHERE `Nom` = 'tirage'";
         $sth = $dbh->prepare($query);
         if (!$sth->execute()) {
@@ -50,10 +50,10 @@ class Tirage {
        
         return $date;
     }
-    public static function setDateTirage($dbh,$new_date) {
-        $query = "UPDATE `variables_globales` SET `date_tirage`=?  WHERE `nom`='tirage'";
+    public static function setDateTirage($dbh,$new_timestamp) {
+        $query = "UPDATE `variables_globales` SET `Valeur`=?  WHERE `nom`='tirage'";
         $sth = $dbh->prepare($query);
-        $sth->execute(array("$new_date"));
+        $sth->execute(array("$new_timestamp"));
         return $sth;
     }
 

@@ -12,7 +12,7 @@
 
 
     <div class="row col-md-12">         
-        <div class="col-md-7 cadre_transparent">
+        <div class="col-md-7 cadre_transparent count">
             <h2>Prochain tirage dans</h2>
 
             <div class="cell">
@@ -20,6 +20,7 @@
                     <div class="digits"></div>
                 </div>
             </div>    
+            <span id="date"></span>
 
         </div> 
         <div class="col-md-4 col-md-offset-1 cadre_transparent ">

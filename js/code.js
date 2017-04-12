@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+   
     
     //Animation des pages
 

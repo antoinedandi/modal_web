@@ -74,15 +74,16 @@ generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
 <!-- Code javascript du compte à rebours -->
 <script src="js/jquery.countdown.js"></script>
 <script src="js/code.js"></script>
-
-<script>
-    //Animation du compte à rebours
 <?php
 $date = Tirage::getDateTirage($dbh);
 $annee = $date[0];
-$mois = $date[1];
+//les mois commencent à 0
+$mois = $date[1]-1;
 $jour = $date[2];
 ?>
+<script>
+    //Animation du compte à rebours
+
     var endTime = new Date(<?php echo $annee ?>,<?php echo $mois ?>,<?php echo $jour ?>);
     $(".digits").countdown({
         image: "img/digits.png",
@@ -90,9 +91,6 @@ $jour = $date[2];
         endTime: endTime
     });
 
-</script>
-
-<script>
     //Animation de la cagnotte
 
 
@@ -111,8 +109,21 @@ $jour = $date[2];
                     
                 });
             }, 100);*/
+    
+    //Tirage Automatique
 
-
+    var tirageAuto = setInterval(
+            function ()
+            {                  
+                var tirageNecessaire=new Date().getTime()>endTime.getTime();
+                $('#date').text(new Date().getTime()+'\n'+endTime+ tirageNecessaire);
+                if (tirageNecessaire) {
+                    $('#count').css('background-color', 'red');
+                    $.post("scripts/tirageAuto.php", {'date':endTime.getTime()}, function (rep) {
+                        endTime=new Date(endTime.getTime()+604800000);
+                    });
+                }
+            }, 1000);
 </script>
 
 <?php
