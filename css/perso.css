@@ -18,7 +18,7 @@ body {
 }
 
 .jumbotron {
-    
+    background-color: rgba(0,0,0,0);
     color:black;
 }
 
@@ -49,13 +49,8 @@ body {
 h1,h2,h3,p {
     text-align: center;
 }
-
-
-
-.boxy{
-    background-color: grey ; 
-    border-radius: 10px;
-    color: white;
+#cagnotte{
+    font-size:  70px;
 }
 
 video {
@@ -87,7 +82,7 @@ video {
     transition: 0.5s ease;
 }
 .goOut{
-    transform: translateZ(400px);
+    transform: translateX(400px);
     opacity: 0;
     
 }
