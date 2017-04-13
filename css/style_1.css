@@ -18,6 +18,9 @@ h1,h2,h3, nav a {
     
     font-size:20px;
 }
+  #jours,#secondes,#minutes,#heures,#euro {
+    font-size:30px;
+ }
  #jours { 
     margin-left: 70px;
  }

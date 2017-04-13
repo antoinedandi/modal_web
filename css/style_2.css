@@ -5,6 +5,9 @@
 
 
 /***Indications compte à rebours***/
+  #jours,#secondes,#minutes,#heures,#euro {
+    font-size:30px;
+ }
  #jours { 
     margin-left: 60px;
  }

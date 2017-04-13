@@ -23,9 +23,7 @@
 
  .cntDigit#cnt_0,   .cntDigit#cnt_2,   .cntDigit#cnt_4,   .cntDigit#cnt_6 { margin-left: 20px; }
  
-  #jours,#secondes,#minutes,#heures,#euro {
-    font-size:30px;
- }
+
 
  #euro{
      text-align: center;
