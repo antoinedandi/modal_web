@@ -51,11 +51,10 @@ class Tirage {
         return $date;
     }
     public static function setDateTirage($dbh,$date) {
-        $query = "UPDATE `variables_globales` SET `Date_tirage`=?  WHERE `nom`='tirage'";
+        $format=$date->format('Y-m-d');
+        $query = "UPDATE `variables_globales` SET `Date_tirage`='$format'  WHERE `nom`='tirage'";
         $sth = $dbh->prepare($query);
-        print_r("$date->format('Y-m-d H:i:s')");
-        echo "<alert>$date->format('Y-m-d H:i:s')</alert>";
-        $sth->execute(array($date->format('Y-m-d H:i:s')));
+        $sth->execute();
         return $sth;
     }
 

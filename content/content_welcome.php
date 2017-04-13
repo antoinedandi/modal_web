@@ -19,13 +19,21 @@
                 <div id="row holder">
                     <div class="digits"></div>
                 </div>
-            </div>    
-            <span id="date"></span>
+            </div>  
+            <div class="row">
+                <span id="jours">Jours</span>
+                <span id="heures">Heures</span>
+                <span id="minutes">Minutes</span>
+                <span id="secondes">Secondes</span>
+            </div>
 
         </div> 
         <div class="col-md-4 col-md-offset-1 cadre_transparent ">
             <h2>Cagnotte</h2>
+            
             <div id="cagnotte" class="cagnotte center-block label  label-primary"></div>      
+            <div class="row">
+                <div id="euro" class="center">Euros</div></div>
         </div>           
     </div>
 

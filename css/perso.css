@@ -24,7 +24,6 @@ body {
 
 .cadre{
     border-radius: 10px;
-    
     background-color: rgb(238, 238, 238);
     padding-right: 15px;
     padding-left: 15px;
@@ -49,16 +48,14 @@ body {
 h1,h2,h3,p {
     text-align: center;
 }
-#cagnotte{
-    font-size:  70px;
-}
+
 
 video {
     width: 100%;
     height: auto;
 }
 .dropdown-menu{
-    width: 200px;
+    width: 250px;
 }
 /***validation du formulaire d'inscription***/
 
@@ -97,10 +94,11 @@ video {
     opacity: 0;  
 }
 
-.cagnotte{
+#cagnotte{
     text-align: center;
-    font-size: 50px;   
+    font-size: 70px;   
     width:70%;
+    background-color: #272727;
 }
 
 .badge{

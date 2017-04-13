@@ -25,14 +25,14 @@ if(isset($_POST["up0"]) && $_POST["up0"] != "" &&
   }
 }
 
-    
-
+echo "<div class='container-fluid cadre_transparent row col-md-8 col-md-offset-2'>";
+$login_secure= htmlspecialchars($login);
 if (!$change_password_valid) {
     echo <<<CHAINE_DE_FIN
-    <div class="container-fluid cadre_transparent row col-md-8 col-md-offset-2">
-    <div>
-        <p> $login, voulez vous changer de mot de passe? </p>
-    </div>
+    
+   
+        <h2> $login_secure, voulez vous changer de mot de passe? </h2>
+    
     <form action="?page=changePassword" method="post" id="changePassword"
           oninput="up2.setCustomValidity(up2.value != up1.value ? 'Les mots de passe diffèrent.' : '')">
         <div class="form-group">
@@ -53,10 +53,11 @@ if (!$change_password_valid) {
             <input id="password2" type="password" name="up2" class="form-control" placeholder="Tapez d'abord votre mot de passe" disabled>
             <p class="messageErreur" id="messagePass2" hidden>Les mots de passe diffèrent</p>
         </div>
-        <button type="submit" class="btn btn-default">change password</button>
+        <button type="submit" class="btn btn-primary">Changez de mot de passe</button>
     </form>
 </div>   
 CHAINE_DE_FIN;
 }else{
-    echo 'Vous avez changé de mot de passe ';
+    echo '<p>Vous avez changé de mot de passe </p>';
 }
+echo "</div>";

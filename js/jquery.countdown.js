@@ -28,7 +28,7 @@ var createDigits = function(where, options) {
 
       elem.current = parseInt(options.startTime[i]);
       digits.push(elem);
-
+      
       margin(counter, -elem.current * options.digitHeight * options.digitImages);
 
       if (options.continuous === true) {

@@ -68,13 +68,12 @@ FIN;
 
             if (($video != NULL) && (Video::testerReponse($dbh, $id, $_POST["choix"]))) {
                 $form_values_valid = true;
-                echo $form_values_valid;
-                Utilisateur::incrementTickets($dbh, $_SESSION["user"]);
+                Utilisateur::incrementTickets($dbh, $_SESSION["user"]->login);
                 Cagnotte::updateMontant($dbh, 1);
             } else {
                 echo <<<FIN
         <div class="row col-md-8 col-md-offset-2 cadre">
-                <p>Mauvaise réponse enculé</p>
+                <p>Mauvaise réponse !</p>
         </div>
 FIN;
             }

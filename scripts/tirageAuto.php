@@ -8,9 +8,10 @@ $gagnant = Utilisateur::tirage_au_sort($dbh);
 $montant = Cagnotte::getMontant($dbh);
 Utilisateur::faireGagner($dbh,$gagnant,$montant);
 Cagnotte::resetMontant($dbh);
-$date = new DateTime(604800+$_POST['date'],new DateTimeZone('Paris/Europe'));
-
-return Tirage::setDateTirage($dbh, $date);
+$date = new DateTime();
+$date->setTimestamp(604800+$_POST['date']/1000);
+Tirage::setDateTirage($dbh, $date);
+return $date;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

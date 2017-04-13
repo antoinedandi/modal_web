@@ -97,7 +97,7 @@ FIN;
         $notif= Utilisateur::getUtilisateur($dbh, $login)->notification;
         echo <<<CHAINE_DE_FIN
            
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome $login! <span class="badge">$notif</span> <b class="caret"></b></a>
+                    <li class="dropdown"><a href="index.php?page=compte" class="dropdown-toggle" data-toggle="dropdown">Bienvenue $login! <span class="badge">$notif</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-right cadre_transparent">
                             <li><a href='index.php?page=changePassword'>Changer de mot de passe</a></li>
                             <li><a href='index.php?page=deleteUser'>Supprimer mon compte</a></li>

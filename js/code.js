@@ -18,14 +18,14 @@ $(document).ready(function () {
      });
      }, 100);*/
 
-    //Animation des pages
+    ////////////Animation des pages
 
     $(window).bind('beforeunload', function () {
         $("#content .cadre_transparent").addClass("goOut");
         $(".jumbotron").addClass("goOut");
     });
     
-    //Compte à rebours
+    ////////Compte à rebours
     $(".digits").countdown({
         image: "img/digits.png",
         format: "dd:hh:mm:ss",
@@ -38,13 +38,11 @@ $(document).ready(function () {
             function ()
             {                  
                 var tirageNecessaire=new Date().getTime()>endTime.getTime();
-                //$('#date').text(new Date().getTime()+'\n'+endTime+ tirageNecessaire);
                 if (tirageNecessaire) {
                     $('#count').css('background-color', 'red');
                     $.post("scripts/tirageAuto.php", {'date':endTime.getTime()}, function (rep) {
                         endTime=new Date(endTime.getTime()+604800000);
-                        $('#date').text(rep);
                     });
                 }
-            }, 6000);
+            }, 1000);
 });
