@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Nixie+One');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
+.dropdown-menu{
+    width: 250px;
+}
+body{ 
+  font-family: 'Libre Baskerville',serif;
+}
+
+h1,h2,h3, nav a {
+    font-family: 'Nixie One',cursive;
+}
+
+
+
+/***Indications compte à rebours***/
+ #jours { 
+    margin-left: 60px;
+ }
+ #minutes { 
+    margin-left: 50px;
+ }
+ #secondes { 
+    margin-left: 30px;
+ }
+ #heures{
+    margin-left: 70px;
+ }

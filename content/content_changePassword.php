@@ -55,7 +55,7 @@ if (!$change_password_valid) {
         </div>
         <button type="submit" class="btn btn-primary">Changez de mot de passe</button>
     </form>
-</div>   
+   
 CHAINE_DE_FIN;
 }else{
     echo '<p>Vous avez changé de mot de passe </p>';

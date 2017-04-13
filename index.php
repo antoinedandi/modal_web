@@ -42,7 +42,7 @@ if ($authorized == TRUE) {
     $pageTitle = "Erreur";
 }
 
-generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/perso.css');
+generateHTMLHeader($pageTitle, 'css/bootstrap.css', 'css/style_3.css');
 ?>
 
 <nav id="menu">

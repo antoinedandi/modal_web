@@ -16,7 +16,7 @@
             <h2>Prochain tirage dans</h2>
 
             <div class="cell">
-                <div id="row holder">
+                <div id="holder">
                     <div class="digits"></div>
                 </div>
             </div>  

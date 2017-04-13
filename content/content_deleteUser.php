@@ -1,7 +1,8 @@
 <?php
 
 $delete_account_valid=false;
-$login=$_SESSION['login'];
+$login=$_SESSION['user']->login;
+$login_secure= htmlspecialchars($login);
 
     
 // code de traitement du formulaire : 
@@ -22,13 +23,11 @@ if(isset($_POST["up"]) && $_POST["up"] != "") {
 }
 
     
-
+echo "<div class='container-fluid cadre_transparent row col-md-8 col-md-offset-2'>";
 if (!$delete_account_valid) {
     echo <<<CHAINE_DE_FIN
-    <div class="container-fluid row col-md-8 col-md-offset-2">
-    <div>
-        <p> $login, voulez vous supprimer votre compte? </p>
-    </di>
+    
+        <h2> $login_secure, voulez vous supprimer votre compte? </h2>
     <form action="?page=deleteUser" method="post" ">
         <div class="form-group">
             <label for="password">Password:</label>
@@ -39,7 +38,8 @@ if (!$delete_account_valid) {
 </div>   
 CHAINE_DE_FIN;
 }else{
-    echo 'vous avez supprimé votre compte ';
+    echo '<h2>Vous avez supprimé votre compte</h2> ';
     logOut();
 }
+echo "</div>";
 

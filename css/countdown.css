@@ -26,18 +26,7 @@
   #jours,#secondes,#minutes,#heures,#euro {
     font-size:30px;
  }
- #jours { 
-    margin-left: 60px;
- }
- #minutes { 
-    margin-left: 50px;
- }
- #secondes { 
-    margin-left: 30px;
- }
- #heures{
-    margin-left: 70px;
- }
+
  #euro{
      text-align: center;
  }

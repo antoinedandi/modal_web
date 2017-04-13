@@ -54,9 +54,7 @@ video {
     width: 100%;
     height: auto;
 }
-.dropdown-menu{
-    width: 250px;
-}
+
 /***validation du formulaire d'inscription***/
 
 #inscription input:hover{

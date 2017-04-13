@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+
+
+body { 
+  
+  font-family: 'Crimson Text',serif;
+}
+
+h1,h2,h3, nav a {
+    font-family: 'Josefin Sans',sans-serif;
+    font-size:200%;
+}
+.dropdown-menu{
+    width: 250px;
+}
+.dropdown-menu>li>a{
+    
+    font-size:20px;
+}
+ #jours { 
+    margin-left: 70px;
+ }
+ #minutes { 
+    margin-left: 60px;
+ }
+ #secondes { 
+    margin-left: 50px;
+ }
+ #heures{
+    margin-left: 80px;
+ }

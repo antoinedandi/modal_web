@@ -1,0 +1,19 @@
+
+.dropdown-menu{
+    width: 250px;
+}
+
+
+/***Indications compte à rebours***/
+ #jours { 
+    margin-left: 60px;
+ }
+ #minutes { 
+    margin-left: 50px;
+ }
+ #secondes { 
+    margin-left: 30px;
+ }
+ #heures{
+    margin-left: 70px;
+ }

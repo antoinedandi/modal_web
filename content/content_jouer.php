@@ -57,8 +57,9 @@ $reponses = array($video->right_answer, $video->wrong_answer1, $video->wrong_ans
 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
     if ($_SESSION['user']->admin) {
         echo <<<FIN
-        <div class='col-md-8 col-md-offset-2 cadre transparent'>
-            <p>Vous êtes Administrateur donc pas là pour jouer</p>
+        <div class='col-md-8 col-md-offset-2 cadre_transparent'>
+            <h2>Vous êtes Administrateur</h2>
+            <p>donc pas là pour jouer</p>
         </div>
 FIN;
     } else {
