@@ -37,7 +37,7 @@ if (!$form_values_valid) {
     <form action="?page=inscription" method="post" id="inscription">
         <div class="form-group">
             <label for="name">Nom :</label>
-            <input id="name" type="text" required name="name" value="$name" class="form-control succes"> 
+            <input id="name" type="text" required name="name" value="$name" class="form-control"> 
             <p class="messageErreur" id="messageName" hidden>Tapez un nom valide</p>
         </div>
         <div class="form-group">
