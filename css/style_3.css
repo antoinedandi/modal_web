@@ -11,18 +11,30 @@ body{
 h1,h2,h3, nav a {
     font-family: 'Nixie One',cursive;
 }
+.navbar-nav>li>a{
+    font-size:20px;
+}
+.navbar-nav>li>a:hover{
+    font-size:22px;
+    font-weight: bold;
 
-
+}
+.jumbotron p{
+    font-size:18px;
+}
 
 /***Indications compte à rebours***/
+  #jours,#secondes,#minutes,#heures,#euro {
+    font-size:25px;
+ }
  #jours { 
-    margin-left: 60px;
+    margin-left: 70px;
  }
  #minutes { 
     margin-left: 50px;
  }
  #secondes { 
-    margin-left: 30px;
+    margin-left: 35px;
  }
  #heures{
     margin-left: 70px;
