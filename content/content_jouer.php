@@ -15,7 +15,7 @@ function afficher_questions($question, $rep) {
     echo <<<CHAINE_DE_FIN
         <div class="container-fluid row col-md-8 col-md-offset-2">
         <form class="form-group row cadre" action="?page=jouer" method="post">
-          <legend class="col-form-legend col-sm-2">$question</legend>
+          <legend class="col-form-legend col-md-offset-1 col-sm-6">$question</legend>
           <div class="col-sm-8 col-md-offset-2">
             <div class="form-check">
               <label class="form-check-label">
