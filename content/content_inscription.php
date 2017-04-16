@@ -77,7 +77,7 @@ CHAINE_DE_FIN;
 }else{
     echo <<<FIN
     <div class="row col-md-8 col-md-offset-2 cadre_transparent">
-        <h1>Félicitations </h1>
+        <h1>Félicitations</h1>
         <p>Vous êtes bien inscrit à Lotopub</p>
         <p>Connectez vous dès maintenant pour profitez du jeu</p>
     </div>
