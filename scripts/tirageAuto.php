@@ -1,4 +1,6 @@
 <?php
+//Script qui effectue un tirage au sort et met la date du prochain tirage au sort à la semaine suivante
+ini_set("display_errors",0);error_reporting(0);
 require('../utilities/bdd/bdd.php');
 require('../utilities/bdd/utilisateur.php');
 require('../utilities/bdd/VariablesGlobales.php');

@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     // Validation du nom
     name.on('blur', function () {
-        if (!/^[a-zA-Z]+[a-zA-Z -']*[a-zA-Z]+$/.test(name.val())) {
+        if (!/^[a-zA-Z 'àëêéèçùûôîïñ-]{2,}$/.test(name.val())) {
             name.addClass('erreur').removeClass('succes');
             $('#messageName').show();
         } else {
@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
     // Validation du prénom
     first_name.on('blur', function () {
-        if (!/^[a-zA-Z]+[a-zA-Z -']*[a-zA-Z]+$/.test(first_name.val())) {
+        if (!/^[a-zA-Z 'àëêéèçùûôîïñ-]{2,}$/.test(first_name.val())) {
             first_name.addClass('erreur').removeClass('succes');
             $('#messageFName').show();
         } else {
@@ -105,7 +105,7 @@ $(document).ready(function () {
     // Validation du second mot de passe 
     pass2.on('keydown input', function () {
 
-        // Make sure it equals the first
+        // Si le mot de passe est correct 
         if (pass2.val() == pass1.val()) {
             $('#messagePass2').hide();
             pass2.removeClass('erreur')

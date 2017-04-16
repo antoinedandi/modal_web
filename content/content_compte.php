@@ -25,7 +25,7 @@
          echo <<<FIN
         
         <div class="row cadre_transparent">
-            <p>Bravo!! vous avez gagné au Lotopub</p>
+            <p>Bravo ! Vous avez gagné au Lotopub</p>
         </div>      
 FIN;
         }
@@ -45,11 +45,10 @@ FIN;
          
     }
     echo <<<FIN
-        
         <div class="row cadre_transparent">
-            <a role="button" class="btn btn-secondary" href="index.php?page=changePassword" >Changer mon mot de passe</a>
-            <a role="button" class="btn btn-secondary" href="index.php?page=deleteUser" >Supprimer mon compte</a>
-            <a role="button" class="btn btn-secondary" href="index.php?todo=logout" >Deconnexion</a>
+            <a role="button" class="btn btn-secondary" href="index.php?page=changePassword">Changer mon mot de passe</a>
+            <a role="button" class="btn btn-secondary" href="index.php?page=deleteUser">Supprimer mon compte</a>
+            <a role="button" class="btn btn-secondary" href="index.php?todo=logout">Deconnexion</a>
         </div>
     
 FIN;

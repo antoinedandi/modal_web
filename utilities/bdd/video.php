@@ -55,11 +55,22 @@ class Video {
     }
     
 
-    public static function deleteUser($dbh,$nom){
+    public static function deleteVideo($dbh,$nom){
         $query="DELETE FROM `video` WHERE `nom`=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Video');
         $sth->execute(array("$nom"));
+    }
+    
+    public static function idAleatoire($dbh){
+        $query="SELECT `id` FROM `video`ORDER BY RAND()LIMIT 1";
+        $sth = $dbh->prepare($query);
+        $sth->setFetchMode(PDO::FETCH_CLASS, 'Video');
+        $sth->execute();
+        $video = $sth->fetch();
+        // $sth : boolean qui dit si ca a marché ou pas
+        $sth->closeCursor();
+        return ($sth)? $video->id:null;
     }
     
 }

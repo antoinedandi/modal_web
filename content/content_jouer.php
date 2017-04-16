@@ -49,7 +49,7 @@ CHAINE_DE_FIN;
 }
 
 $form_values_valid = false;
-$id = "1";
+$id = Video::idAleatoire($dbh);
 $video = Video::getVideoWithID($dbh, $id);
 $reponses = array($video->right_answer, $video->wrong_answer1, $video->wrong_answer2, $video->wrong_answer3);
 
@@ -73,7 +73,7 @@ FIN;
                 Cagnotte::updateMontant($dbh, 1);
             } else {
                 echo <<<FIN
-        <div class="row col-md-8 col-md-offset-2 cadre">
+        <div class="row col-md-8 col-md-offset-2 cadre_transparent">
                 <p>Mauvaise réponse !</p>
         </div>
 FIN;
@@ -85,7 +85,7 @@ FIN;
             afficher_questions($video->question, $reponses);
         } else {
             echo <<<FIN
-        <div class="row col-md-8 col-md-offset-2 cadre">
+        <div class="row col-md-8 col-md-offset-2 cadre_transparent">
                 <p>Bravo! Vous avez gagné un ticket!!</p>
         </div>
 FIN;
@@ -93,7 +93,7 @@ FIN;
     }
 } else {
     echo <<<FIN
-    <div class='col-md-8 col-md-offset-2 cadre transparent'>
+    <div class='col-md-8 col-md-offset-2 cadre_transparent'>
         <p>Il faut être connecté pour accéder au jeu</p>
 FIN;
     printLoginForm("jouer");
