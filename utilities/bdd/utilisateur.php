@@ -27,6 +27,8 @@ class Utilisateur {
     }
     
     public static function insererUtilisateur($dbh, $login, $mdp, $nom, $prenom, $naissance, $email) {
+        $salt="1ZnAHv8!èpm98";
+        $mdp=$mdp.$salt;
         if (Utilisateur::getUtilisateur($dbh, $login) == null){
             $sth = $dbh->prepare("INSERT INTO `utilisateurs` (`login`, `mdp`, `nom`, `prenom`, `naissance`, `email`) VALUES(?,SHA1(?),?,?,?,?)");
             $sth->execute(array($login, $mdp, $nom, $prenom, $naissance, $email));
@@ -39,14 +41,16 @@ class Utilisateur {
     }
     
     public static function testerMdp($dbh,$login,$mdp) {
-        $a= sha1($mdp);
+        $salt="1ZnAHv8!èpm98";
+        $a= sha1($mdp.$salt);
         $test=Utilisateur::getUtilisateur($dbh, $login);
         return $a==$test->mdp;
         // -> represente l'attribut mdp de l'user '$test
     }
     
     public static function changeMdp($dbh,$login,$mdp){
-        $query="UPDATE `utilisateurs` SET `mdp`='$mdp'  WHERE login=?";
+        $salt="1ZnAHv8!èpm98";
+        $query="UPDATE `utilisateurs` SET `mdp`='$mdp.$salt'  WHERE login=?";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $sth->execute(array("$login"));

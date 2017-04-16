@@ -1,32 +1,31 @@
 <?php
 
-$change_password_valid=false;
-$login= htmlspecialchars($_SESSION['user']->login);
+$change_password_valid = false;
+$login = htmlspecialchars($_SESSION['user']->login);
 
-    
+
 // code de traitement du formulaire : 
-    
-if(isset($_POST["up0"]) && $_POST["up0"] != "" &&
-   isset($_POST["up1"]) && $_POST["up1"] != "" &&
-   isset($_POST["up2"]) && $_POST["up2"] != "") {  
-        
-  // code de traitement, à écrire maintenant
-  
-  if(($_POST["up2"] == $_POST["up1"]) && (Utilisateur::getUtilisateur($dbh, $login) != NULL) && (Utilisateur::testerMdp($dbh,$login,$_POST["up0"])) ){
-      
-      $new_password= sha1($_POST['up1']);
-      Utilisateur::changeMdp($dbh, $login, $new_password);
-      $change_password_valid = true;
-      echo $change_password_valid;
-      
-  }
- else {
-    echo'erreur';
-  }
+
+if (isset($_POST["up0"]) && $_POST["up0"] != "" &&
+        isset($_POST["up1"]) && $_POST["up1"] != "" &&
+        isset($_POST["up2"]) && $_POST["up2"] != "") {
+
+    // code de traitement, à écrire maintenant
+
+    if (($_POST["up2"] == $_POST["up1"]) && (Utilisateur::getUtilisateur($dbh, $login) != NULL) && (Utilisateur::testerMdp($dbh, $login, $_POST["up0"]))) {
+
+        $new_password = sha1($_POST['up1']);
+        Utilisateur::changeMdp($dbh, $login, $new_password);
+        $change_password_valid = true;
+    } else {
+        echo "<div class='container-fluid cadre_transparent row col-md-8 col-md-offset-2'>";
+        echo '<p> Erreur! </p>';
+        echo "</div>";
+    }
 }
 
 echo "<div class='container-fluid cadre_transparent row col-md-8 col-md-offset-2'>";
-$login_secure= htmlspecialchars($login);
+$login_secure = htmlspecialchars($login);
 if (!$change_password_valid) {
     echo <<<CHAINE_DE_FIN
     
@@ -57,7 +56,7 @@ if (!$change_password_valid) {
     </form>
    
 CHAINE_DE_FIN;
-}else{
+} else {
     echo '<p>Vous avez changé de mot de passe </p>';
 }
 echo "</div>";

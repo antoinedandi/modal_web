@@ -5,17 +5,17 @@
         <div class="col-md-3 col-md-offset-2 ">
             <img src="img/dandi.jpeg" alt="..." class="img-circle img-responsive center-block">
             <h3>Antoine</h3>
-            <p>Antoine est un joyeux luron, 
+            <p>Antoine est un joyeux luron, pas bien malin mais
                 toujours près à se faire traquenarder par ses amis.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/antoine.dandigne.1" role="button">En savoir plus</a></p>
         </div>   
 
         <div class="col-md-3 col-md-offset-2 ">
             <img src="img/manon.jpeg" alt="..." class="img-circle img-responsive center-block">
             <h3>Manon</h3>
-            <p>AKA baby Manon, véritable geek qui passe ses vacances à jouer à WOW.. 
+            <p>Also known as baby Manon, véritable geek un peu condescendante.. 
                 Très gentille néanmoins!</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/manonrmn" role="button">En savoir plus</a></p>
         </div>  
 
     </div>
