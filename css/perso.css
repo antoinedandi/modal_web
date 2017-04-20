@@ -103,3 +103,8 @@ video {
     color: white;
     background-color: red;
 }
+
+#cagnotte{
+    font-family: Arial,monospace;
+    text-align: center;
+}

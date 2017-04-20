@@ -8,7 +8,7 @@ function afficher_video($video) {
 CHAINE_DE_FIN;
 }
 
-function afficher_questions($question, $rep) {
+function afficher_questions($id,$question, $rep) {
     //print_r($rep);
     shuffle($rep);
     //print_r($rep);
@@ -41,6 +41,7 @@ function afficher_questions($question, $rep) {
                 $rep[3]
               </label>
             </div>
+            <input type="hidden" name="id" value="$id">
             <button type="submit" class="btn btn-default">Valider</button>
           </div>
         </form>
@@ -67,14 +68,14 @@ FIN;
 
             // code de traitement
 
-            if (($video != NULL) && (Video::testerReponse($dbh, $id, $_POST["choix"]))) {
+            if (($video != NULL) && (Video::testerReponse($dbh, $_POST["id"], $_POST["choix"]))) {
                 $form_values_valid = true;
                 Utilisateur::incrementTickets($dbh, $_SESSION["user"]->login);
                 Cagnotte::updateMontant($dbh, 1);
             } else {
                 echo <<<FIN
         <div class="row col-md-8 col-md-offset-2 cadre_transparent">
-                <p>Mauvaise réponse !</p>
+                <p>Mauvaise réponse</p>
         </div>
 FIN;
             }
@@ -82,7 +83,7 @@ FIN;
 
         if (!$form_values_valid) {
             afficher_video($video);
-            afficher_questions($video->question, $reponses);
+            afficher_questions($id,$video->question, $reponses);
         } else {
             echo <<<FIN
         <div class="row col-md-8 col-md-offset-2 cadre_transparent">
